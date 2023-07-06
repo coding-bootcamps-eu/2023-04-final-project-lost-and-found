@@ -39,10 +39,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Project Members
 
 Tine
-https://github.com/christinemariametz
+<https://github.com/christinemariametz>
 Onur
-https://github.com/yueksek-onur
+<https://github.com/yueksek-onur>
 Stefan
-https://github.com/Schulz-CM001
+<https://github.com/Schulz-CM001>
 Bea
-https://github.com/BeaCoden
+<https://github.com/BeaCoden>
