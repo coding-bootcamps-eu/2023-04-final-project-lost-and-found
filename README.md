@@ -1,4 +1,4 @@
-# baz-bar-foo
+# Lost and Found
 
 ## Project setup
 
