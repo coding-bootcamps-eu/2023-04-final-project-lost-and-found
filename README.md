@@ -28,3 +28,13 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 # 2023-04-final-project-lost-and-found
+
+## Project Members
+Tine
+https://github.com/christinemariametz
+Onur
+https://github.com/yueksek-onur
+Stefan
+https://github.com/Schulz-CM001
+Bea
+https://github.com/BeaCoden
