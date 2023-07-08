@@ -136,51 +136,39 @@
 		},
 		methods: {
 			HeaderText() {
-				// Rückgabe des gewünschten Header-Textes
 				return "LOST & FOUND";
 			},
 			MainHeaderText() {
-				// Rückgabe des gewünschten Main Header-Textes
 				return "Main Content";
 			},
 			MainText() {
-				// Rückgabe des gewünschten Haupttextes
 				return "Some text here...";
 			},
 			FooterText() {
-				// Rückgabe des gewünschten Footer-Textes
 				return "Footer content";
 			},
 			Heading1Text() {
-				// Rückgabe des gewünschten Textes für H1
 				return "H1 Heading";
 			},
 			Heading2Text() {
-				// Rückgabe des gewünschten Textes für H2
 				return "H2 Heading";
 			},
 			Heading3Text() {
-				// Rückgabe des gewünschten Textes für H3
 				return "H3 Heading";
 			},
 			ButtonBack() {
-				// Rückgabe des gewünschten Button-Textes
 				return "Back";
 			},
 			ButtonNext() {
-				// Rückgabe des gewünschten Button-Textes
 				return "Next";
 			},
 			ButtonLost() {
-				// Rückgabe des gewünschten Button-Textes
 				return "Lost";
 			},
 			ButtonFound() {
-				// Rückgabe des gewünschten Button-Textes
 				return "Found";
 			},
 			TextInputPlaceholder(type) {
-				// Rückgabe des gewünschten Platzhalters für das Texteingabefeld basierend auf dem Typ
 				return `${type} input`;
 			},
 		},

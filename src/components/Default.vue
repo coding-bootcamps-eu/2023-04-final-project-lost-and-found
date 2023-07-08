@@ -9,31 +9,62 @@
 			<h2>{{ MainHeaderText() }}</h2>
 			<p>{{ MainText() }}</p>
 		</main>
-		<footer>
-			<p>{{ FooterText() }}</p>
-		</footer>
-		<h1>{{ Heading1Text() }}</h1>
+
 		<h2>{{ Heading2Text() }}</h2>
 		<h3>{{ Heading3Text() }}</h3>
-		<button>{{ ButtonText() }}</button>
+
 		<input
 			type="text"
 			:placeholder="TextInputPlaceholder('Text')"
 		/>
-		// eslint-disable-next-line prettier/prettier
+
+		<br />
+
 		<input
 			type="email"
 			:placeholder="TextInputPlaceholder('Email')"
 		/>
-		<select>
+
+		<br />
+
+		<select class="optionsItem">
 			<option
-				v-for="option in options"
+				v-for="option in optionsItem"
 				:value="option.value"
 				:key="option.value"
 			>
 				{{ option.label }}
 			</option>
 		</select>
+
+		<select class="optionsColor">
+			<option
+				v-for="option in optionsColor"
+				:value="option.value"
+				:key="option.value"
+			>
+				{{ option.label }}
+			</option>
+		</select>
+
+		<select class="optionsMaterial">
+			<option
+				v-for="option in optionsMaterial"
+				:value="option.value"
+				:key="option.value"
+			>
+				{{ option.label }}
+			</option>
+		</select>
+
+		<br />
+
+		<div class="date">
+			<time datetime="">Placeholder Select Datum</time>
+		</div>
+
+		<div class="location">Placeholder Select Location</div>
+
 		<ul>
 			<li
 				v-for="item in listItems"
@@ -42,6 +73,24 @@
 				{{ item }}
 			</li>
 		</ul>
+		<div class="backNext">
+			<button>{{ ButtonBack() }}</button>
+			<button>{{ ButtonNext() }}</button>
+		</div>
+
+		<br />
+
+		<div class="lostFound">
+			<Button>{{ ButtonLost() }}</Button>
+			<Button>{{ ButtonFound() }}</Button>
+		</div>
+		<footer>
+			<p>{{ FooterText() }}</p>
+		</footer>
+	</div>
+	<div class="counter">
+		Placeholder für Counter
+		<p>{{ counterValue }}</p>
 	</div>
 </template>
 
@@ -51,49 +100,75 @@
 		name: "DefaultComponent",
 		data() {
 			return {
-				options: [
-					{ value: "option1", label: "Option 1" },
-					{ value: "option2", label: "Option 2" },
-					{ value: "option3", label: "Option 3" },
+				optionsItem: [
+					{ value: "product", label: "Wallet" },
+					{ value: "product", label: "Bag" },
+					{ value: "product", label: "Phone" },
+					{ value: "product", label: "Watch" },
+					{ value: "product", label: "Key" },
+					{ value: "product", label: "Clothing" },
 				],
-				listItems: ["List item 1", "List item 2", "List item 3"],
+
+				optionsColor: [
+					{ value: "color", label: "Black" },
+					{ value: "color", label: "White" },
+					{ value: "color", label: "Brown" },
+					{ value: "color", label: "Red" },
+					{ value: "color", label: "Green" },
+					{ value: "color", label: "Blue" },
+					{ value: "color", label: "Yellow" },
+					{ value: "color", label: "Silver" },
+					{ value: "color", label: "Gold" },
+				],
+
+				optionsMaterial: [
+					{ value: "material", label: "Kind of Leather" },
+					{ value: "material", label: "Kind of Plastic" },
+					{ value: "material", label: "Kind of Metal" },
+					{ value: "material", label: "Kind of Wood" },
+					{ value: "material", label: "Kind of textiles" },
+				],
+
+				listItems: [
+					"Placeholder für Item-Liste oder Item nachdem User-Auswahl getroffen wurde",
+				],
 			};
 		},
 		methods: {
 			HeaderText() {
-				// Rückgabe des gewünschten Header-Textes
-				return "Header";
+				return "LOST & FOUND";
 			},
 			MainHeaderText() {
-				// Rückgabe des gewünschten Main Header-Textes
 				return "Main Content";
 			},
 			MainText() {
-				// Rückgabe des gewünschten Haupttextes
 				return "Some text here...";
 			},
 			FooterText() {
-				// Rückgabe des gewünschten Footer-Textes
 				return "Footer content";
 			},
 			Heading1Text() {
-				// Rückgabe des gewünschten Textes für H1
 				return "H1 Heading";
 			},
 			Heading2Text() {
-				// Rückgabe des gewünschten Textes für H2
 				return "H2 Heading";
 			},
 			Heading3Text() {
-				// Rückgabe des gewünschten Textes für H3
 				return "H3 Heading";
 			},
-			ButtonText() {
-				// Rückgabe des gewünschten Button-Textes
-				return "Button";
+			ButtonBack() {
+				return "Back";
+			},
+			ButtonNext() {
+				return "Next";
+			},
+			ButtonLost() {
+				return "Lost";
+			},
+			ButtonFound() {
+				return "Found";
 			},
 			TextInputPlaceholder(type) {
-				// Rückgabe des gewünschten Platzhalters für das Texteingabefeld basierend auf dem Typ
 				return `${type} input`;
 			},
 		},
