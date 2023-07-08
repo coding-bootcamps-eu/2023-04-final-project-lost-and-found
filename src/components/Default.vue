@@ -208,6 +208,7 @@
 		background-color: #4caf50;
 		color: white;
 		padding: 10px 20px;
+		margin: 10px;
 		border: none;
 		cursor: pointer;
 	}
