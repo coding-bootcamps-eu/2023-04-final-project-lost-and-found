@@ -1,7 +1,4 @@
 <template>
-  <nav>
-    <router-link to="/about">About us</router-link>
-  </nav>
   <router-view />
 </template>
 

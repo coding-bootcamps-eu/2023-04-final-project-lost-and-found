@@ -2,6 +2,9 @@
   <div>
     <header>
       <h1>{{ HeaderText() }}</h1>
+      <h1>{{ HeaderLostText() }}</h1>
+      <h1>{{ HeaderFoundText() }}</h1>
+      <h1>{{ HeaderImprintText() }}</h1>
     </header>
     <main>
       <h2>{{ MainHeaderText() }}</h2>
@@ -68,6 +71,8 @@
       <button>{{ ButtonNext() }}</button>
     </div>
 
+    <button>{{ ButtonUpload() }}</button>
+
     <br />
 
     <div class="lostFound">
@@ -127,6 +132,15 @@ export default {
     HeaderText() {
       return "LOST & FOUND";
     },
+    HeaderFoundText() {
+      return "FOUND";
+    },
+    HeaderLostText() {
+      return "LOST";
+    },
+    HeaderImprintText() {
+      return "Imprint";
+    },
     MainHeaderText() {
       return "Main Content";
     },
@@ -150,6 +164,9 @@ export default {
     },
     ButtonNext() {
       return "Next";
+    },
+    ButtonUpload() {
+      return "upload";
     },
     ButtonLost() {
       return "Lost";

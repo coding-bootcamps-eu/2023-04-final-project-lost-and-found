@@ -1,4 +1,7 @@
 <template>
+  <nav>
+    <router-link to="/about">About us</router-link>
+  </nav>
   <div class="home">
     <Default msg="Welcome to our Lost & Found App" />
   </div>
