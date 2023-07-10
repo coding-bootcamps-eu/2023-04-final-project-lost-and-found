@@ -1,26 +1,11 @@
 <template>
-  <div>
-    <header>
-      <h1>{{ HeaderText() }}</h1>
-      <h1>{{ HeaderLostText() }}</h1>
-      <h1>{{ HeaderFoundText() }}</h1>
-    </header>
-    <main>
-      <h2>{{ MainHeaderText() }}</h2>
-      <p>{{ MainText() }}</p>
-    </main>
+  <header>
+    <h1>{{ HeaderLostText() }}</h1>
+  </header>
 
-    <h2>{{ Heading2Text() }}</h2>
-    <h3>{{ Heading3Text() }}</h3>
-
-    <input type="text" :placeholder="TextInputPlaceholder('Text')" />
-
-    <br />
-
-    <input type="email" :placeholder="TextInputPlaceholder('Email')" />
-
-    <br />
-
+  <main>
+    <!--      ITEM      -->
+    <p>What did you lose?</p>
     <select class="optionsItem">
       <option
         v-for="option in optionsItem"
@@ -30,7 +15,8 @@
         {{ option.label }}
       </option>
     </select>
-
+    <!--      COLOR      -->
+    <p>What is the basic color?</p>
     <select class="optionsColor">
       <option
         v-for="option in optionsColor"
@@ -40,7 +26,8 @@
         {{ option.label }}
       </option>
     </select>
-
+    <!--      MATERIAL      -->
+    <p>What is the basic material?</p>
     <select class="optionsMaterial">
       <option
         v-for="option in optionsMaterial"
@@ -50,42 +37,32 @@
         {{ option.label }}
       </option>
     </select>
+    <!--      EMAIL      -->
+    <p>Please insert your email:</p>
+    <input type="email" :placeholder="TextInputPlaceholder('Email')" />
+    <!--      DATE/TIME      -->
+    <p>When did you lose it?</p>
+    <input type="text" :placeholder="TextInputPlaceholder('Calendar')" />
 
-    <br />
+    <!--      LOCATION      -->
+    <p>Where did you lose it?</p>
+    <input type="text" :placeholder="TextInputPlaceholder('Location')" />
 
-    <div class="date">
-      <time datetime="">Placeholder Select Datum</time>
-    </div>
+    <!--      DESCRIPTION      -->
+    <p>Describe it in your own words: (optional)</p>
+    <input type="text" :placeholder="TextInputPlaceholder('Text')" />
 
-    <div class="location">Placeholder Select Location</div>
-
-    <ul>
-      <li v-for="item in listItems" :key="item">
-        {{ item }}
-      </li>
-    </ul>
+    <!--      PICTURE UPLOAD      -->
+    <p>Picture upload (optional)</p>
+    <input type="text" :placeholder="TextInputPlaceholder('Text')" /><button>
+      {{ ButtonUpload() }}
+    </button>
 
     <div class="backNext">
       <button>{{ ButtonBack() }}</button>
       <button>{{ ButtonNext() }}</button>
     </div>
-
-    <button>{{ ButtonUpload() }}</button>
-
-    <br />
-
-    <div class="lostFound">
-      <Button>{{ ButtonLost() }}</Button>
-      <Button>{{ ButtonFound() }}</Button>
-    </div>
-    <footer>
-      <p>{{ FooterText() }}</p>
-    </footer>
-  </div>
-  <div class="counter">
-    Placeholder für Counter
-    <p>{{ counterValue }}</p>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -128,35 +105,14 @@ export default {
     };
   },
   methods: {
-    HeaderText() {
-      return "LOST & FOUND";
-    },
-    HeaderFoundText() {
-      return "FOUND";
-    },
     HeaderLostText() {
       return "LOST";
     },
-    HeaderImprintText() {
-      return "Imprint";
+    TextInputPlaceholder(type) {
+      return `${type} input`;
     },
-    MainHeaderText() {
-      return "Main Content";
-    },
-    MainText() {
-      return "Some text here...";
-    },
-    FooterText() {
-      return "Footer content";
-    },
-    Heading1Text() {
-      return "H1 Heading";
-    },
-    Heading2Text() {
-      return "H2 Heading";
-    },
-    Heading3Text() {
-      return "H3 Heading";
+    ButtonUpload() {
+      return "upload";
     },
     ButtonBack() {
       return "Back";
@@ -164,23 +120,11 @@ export default {
     ButtonNext() {
       return "Next";
     },
-    ButtonUpload() {
-      return "upload";
-    },
-    ButtonLost() {
-      return "Lost";
-    },
-    ButtonFound() {
-      return "Found";
-    },
-    TextInputPlaceholder(type) {
-      return `${type} input`;
-    },
   },
 };
 </script>
 
-<style>
+<style scoped>
 /* SCOPED ? */
 header {
   background-color: #f2f2f2;
