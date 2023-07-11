@@ -4,20 +4,20 @@
     <h2>We are:</h2>
     <ul>
       <li>
-        <img src="" alt="Profile Picture" />
+        <img src="../../src/assets/tine.png " alt="Profile Picture Tine" />
         Tine
       </li>
 
       <li>
-        <img src="" alt="Profile Picture" />
+        <img src="../../src/assets/bea.png" alt="Profile Picture" />
         Bea
       </li>
       <li>
-        <img src="" alt="Profile Picture" />
+        <img src="../../src/assets/onur.png" alt="Profile Picture" />
         Onur
       </li>
       <li>
-        <img src="" alt="Profile Picture" />
+        <img src="../../src/assets/stefan.png" alt="Profile Picture" />
         Stefan
       </li>
     </ul>
@@ -38,8 +38,20 @@
 
     <p>Check our LinkedIn Profiles:</p>
     <a target="_blank" href=""> Tine</a>
-    <a target="_blank" href=""> Bea</a>
-    <a target="_blank" href=""> Onur</a>
-    <a target="_blank" href=""> Stefan</a>
+    <a
+      target="_blank"
+      href="https://www.linkedin.com/in/bea-pitzschke-1488a0270/"
+    >
+      Bea</a
+    >
+    <a
+      target="_blank"
+      href="https://www.linkedin.com/in/onur-y%C3%BCksek-501988156/"
+    >
+      Onur</a
+    >
+    <a target="_blank" href="https://www.linkedin.com/in/stefanconvert/">
+      Stefan</a
+    >
   </div>
 </template>
