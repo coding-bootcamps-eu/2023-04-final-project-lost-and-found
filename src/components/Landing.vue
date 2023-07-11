@@ -35,15 +35,15 @@
     </aside>
 
     <footer>
-      <div>
-        <a href="#contact">contact</a>
-      </div>
-      <div>
-        <a href="#about">about us</a>
-      </div>
-      <div>
-        <a href="#impressum">impressum</a>
-      </div>
+      <nav>
+        <router-link to="/about">About us</router-link>
+      </nav>
+      <nav>
+        <router-link to="/contact">Contact</router-link>
+      </nav>
+      <nav>
+        <router-link to="/impressum">Impressum</router-link>
+      </nav>
     </footer>
   </div>
 </template>
