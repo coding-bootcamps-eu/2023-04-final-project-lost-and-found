@@ -42,7 +42,7 @@
         <a href="#about">about us</a>
       </div>
       <div>
-        <a href="#imprint">imprint</a>
+        <a href="#impressum">impressum</a>
       </div>
     </footer>
   </div>
