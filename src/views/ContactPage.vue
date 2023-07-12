@@ -28,7 +28,12 @@
     <div class="linkedin">
       <img src="../../src/assets/iconLI.png" alt="LinkedIn Icon" />
       <p>LinkedIn</p>
-      <a target="_blank" href=""> Tine</a>
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/christine-maria-metz-6b7a18177/"
+      >
+        Tine</a
+      >
       <a
         target="_blank"
         href="https://www.linkedin.com/in/bea-pitzschke-1488a0270/"
