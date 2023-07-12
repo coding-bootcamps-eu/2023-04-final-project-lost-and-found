@@ -1,6 +1,8 @@
 <template>
   <header>
-    <h1>{{ HeaderFoundText() }}</h1>
+    <div class="logo">
+      <img src="../assets/foundLogo.png" alt="Logo Found" />
+    </div>
   </header>
 
   <main>

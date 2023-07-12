@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/LandingPage.vue";
+import FoundMessagePage from "../views/FoundMessagePage.vue";
 
 const routes = [
   {
     path: "/",
     name: "home",
     component: HomeView,
+  },
+  {
+    path: "/found/foundmessagepage",
+    name: "foundmessage",
+    component: FoundMessagePage,
   },
   {
     path: "/about",
