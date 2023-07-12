@@ -1,4 +1,3 @@
-
 <template>
   <header>
     <h1>{{ HeaderLostText() }}</h1>
