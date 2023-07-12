@@ -1,45 +1,34 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
-    <h2>We are:</h2>
+    <h1>There is always a beginning</h1>
+    <h2>
+      We met each other at Coding Bootcamps Europe and we are happy to share our
+      first project with you.
+    </h2>
+    <a target="_blank" href="https://www.coding-bootcamps.eu/">
+      <img
+        src="../../src/assets/iconCBE.png"
+        alt="Coding Bootcamps Europe Icon"
+    /></a>
+    <h2>We are a team of 4 trainees</h2>
     <ul>
       <li>
-        <img src="" alt="Profile Picture" />
+        <img src="../../src/assets/tine.png " alt="Profile Picture Tine" />
         Tine
       </li>
 
       <li>
-        <img src="" alt="Profile Picture" />
+        <img src="../../src/assets/bea.png" alt="Profile Picture" />
         Bea
       </li>
       <li>
-        <img src="" alt="Profile Picture" />
+        <img src="../../src/assets/onur.png" alt="Profile Picture" />
         Onur
       </li>
       <li>
-        <img src="" alt="Profile Picture" />
+        <img src="../../src/assets/stefan.png" alt="Profile Picture" />
         Stefan
       </li>
     </ul>
-
-    a team of 4 trainees from the
-    <a target="_blank" href="https://www.coding-bootcamps.eu/"
-      >Coding-Bootcamps-Europe</a
-    >
-    and we are currently working on our final project.
-
-    <p>Check our GitHub Profiles:</p>
-    <a target="_blank" href="https://github.com/christinemariametz">
-      christinemariametz</a
-    >
-    <a target="_blank" href="https://github.com/BeaCoden"> BeaCoden</a>
-    <a target="_blank" href="https://github.com/yueksek-onur"> yueksek-onur</a>
-    <a target="_blank" href="https://github.com/Schulz-CM001"> Schulz-CM001</a>
-
-    <p>Check our LinkedIn Profiles:</p>
-    <a target="_blank" href=""> Tine</a>
-    <a target="_blank" href=""> Bea</a>
-    <a target="_blank" href=""> Onur</a>
-    <a target="_blank" href=""> Stefan</a>
   </div>
 </template>
