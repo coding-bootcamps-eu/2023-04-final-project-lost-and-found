@@ -2,7 +2,7 @@
   <div>
     <header>
       <div class="logo">
-        <img src="../assets/logo.png" alt="Logo" />
+        <img src="../assets/lostLogo.png" alt="Logo Lost" />
       </div>
     </header>
 
