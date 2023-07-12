@@ -1,6 +1,8 @@
 <template>
   <header>
-    <h1>{{ HeaderLostText() }}</h1>
+    <div class="logo">
+      <img src="../assets/lostLogo.png" alt="Logo Lost" />
+    </div>
   </header>
 
   <main>
