@@ -22,6 +22,15 @@
       </div>
     </main>
   </div>
+
+  <footer>
+    <nav>
+      <router-link to="/LostMatchPage">Back</router-link>
+    </nav>
+    <nav>
+      <router-link to="/">Home</router-link>
+    </nav>
+  </footer>
 </template>
 
 <script>
