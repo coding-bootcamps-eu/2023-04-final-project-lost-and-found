@@ -1,6 +1,22 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/LandingPage.vue";
+
 import LostMatchPage from "../views/LostMatchPage.vue";
+
+import FoundMessagePage from "../views/FoundMessagePage.vue";
+
+import LostnonMatchPage from "../views/LostnonMatchPage.vue";
+
+import FoundMessagePage from "../views/FoundMessagePage.vue";
+import LostMatchPage from "../views/LostMatchPage.vue";
+import LostnonMatchPage from "../views/LostnonMatchPage.vue";
+import AboutPage from "../views/AboutPage.vue";
+import ContactPage from "../views/ContactPage.vue";
+import ImpressumPage from "../views/ImpressumPage.vue";
+import LostPage from "../views/LostPage.vue";
+import FoundPage from "../views/FoundPage.vue";
+
+
 
 const routes = [
   {
@@ -9,24 +25,63 @@ const routes = [
     component: HomeView,
   },
   {
+
+    path: "/found/foundmessagepage",
+    name: "foundmessage",
+    component: FoundMessagePage,
+  },
+  {
+
+
     path: "/lost/lostmatchpage",
     name: "lostmatch",
     component: LostMatchPage,
   },
   {
+
+
+    path: "/lost/lostnonmatchpage",
+    name: "lostnonmatch",
+    component: LostnonMatchPage,
+  },
+  {
+
+
     path: "/about",
     name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutPage.vue"),
+    component: AboutPage,
   },
   {
     path: "/contact",
     name: "contact",
+    component: ContactPage,
+  },
+  {
+    path: "/impressum",
+    name: "impressum",
+    component: ImpressumPage,
+  },
+  {
+    path: "/lost",
+    name: "lost",
+    component: LostPage,
+  },
+  {
+    path: "/found",
+    name: "found",
+    component: FoundPage,
+  },
+  {
+    path: "/lost",
+    name: "lost",
     component: () =>
-      import(/* webpackChunkName: "contact" */ "../views/ContactPage.vue"),
+      import(/* webpackChunkName: "lost" */ "../views/LostPage.vue"),
+  },
+  {
+    path: "/found",
+    name: "found",
+    component: () =>
+      import(/* webpackChunkName: "found" */ "../views/FoundPage.vue"),
   },
 ];
 

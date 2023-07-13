@@ -7,7 +7,9 @@
     </header>
 
     <aside class="text">
-      <h2>Hey, nice to have you here!</h2>
+      <h1>Thank you for your advertisment!</h1>
+      <h2>You will get an email asap.</h2>
+      <p>If you have another issue, start again with lost or found.</p>
     </aside>
 
     <main>
@@ -16,14 +18,12 @@
           <h3>Did you lose somthing?</h3>
           <h4>Here you can find it.</h4>
           <button @click="openLostPage">{{ ButtonTextLost() }}</button>
-          <router-view></router-view>
           <p>Tip-in your details and get a Match with a founder.</p>
         </div>
         <div class="boxFound">
           <h3>Did you find something?</h3>
           <h4>Here you can give it back.</h4>
           <button @click="openFoundPage">{{ ButtonTextFound() }}</button>
-          <router-view></router-view>
           <p>Tip-in your details and get a Match with the sad one.</p>
         </div>
       </div>
@@ -69,11 +69,9 @@ export default {
       return this.counterValue;
     },
     openLostPage() {
-      this.$router.push("/lost");
       // return Lost-Seite
     },
     openFoundPage() {
-      this.$router.push("/found");
       // return Found-Seite
     },
   },
@@ -146,22 +144,12 @@ footer {
   padding: 20px;
 }
 
-a {
-  text-decoration: none;
-  color: #333;
-  margin: 0 10px;
-}
-
 h1 {
   color: #333;
 }
 
 h2 {
   color: #555;
-}
-
-h3 {
-  color: #777;
 }
 
 button {
@@ -171,15 +159,6 @@ button {
   margin: 10px;
   border: none;
   cursor: pointer;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
 }
 
 .counter {
