@@ -109,4 +109,9 @@
       nach sich ziehen.
     </p>
   </div>
+  <footer>
+    <nav>
+      <router-link to="/">Home</router-link>
+    </nav>
+  </footer>
 </template>

@@ -59,12 +59,13 @@
     <input type="text" :placeholder="TextInputPlaceholder('Text')" /><button>
       {{ ButtonUpload() }}
     </button>
-
-    <div class="backNext">
-      <button>{{ ButtonBack() }}</button>
-      <button>{{ ButtonNext() }}</button>
-    </div>
   </main>
+
+  <footer>
+    <nav>
+      <router-link to="/">Back</router-link>
+    </nav>
+  </footer>
 </template>
 
 <script>

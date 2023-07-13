@@ -13,7 +13,11 @@
   </main>
   <footer>
     <nav>
-      <router-link to="/home">Home</router-link>
+      <router-link to="/FoundPage">Back</router-link>
+    </nav>
+    <br />
+    <nav>
+      <router-link to="/">Home</router-link>
     </nav>
   </footer>
 </template>
