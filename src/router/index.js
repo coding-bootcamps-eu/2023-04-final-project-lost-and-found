@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/LandingPage.vue";
+
+import LostMatchPage from "../views/LostMatchPage.vue";
+
 import FoundMessagePage from "../views/FoundMessagePage.vue";
 
 import LostnonMatchPage from "../views/LostnonMatchPage.vue";
@@ -14,6 +17,7 @@ import LostPage from "../views/LostPage.vue";
 import FoundPage from "../views/FoundPage.vue";
 
 
+
 const routes = [
   {
     path: "/",
@@ -21,11 +25,13 @@ const routes = [
     component: HomeView,
   },
   {
+
     path: "/found/foundmessagepage",
     name: "foundmessage",
     component: FoundMessagePage,
   },
   {
+
 
     path: "/lost/lostmatchpage",
     name: "lostmatch",
@@ -33,11 +39,13 @@ const routes = [
   },
   {
 
+
     path: "/lost/lostnonmatchpage",
     name: "lostnonmatch",
     component: LostnonMatchPage,
   },
   {
+
 
     path: "/about",
     name: "about",
