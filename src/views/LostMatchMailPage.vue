@@ -15,10 +15,11 @@
         Please insert your Email Address (we will forward it to the founder of
         your product)
       </p>
-      <input type="email" :placeholder="TextInputPlaceholder('Email')" />
-      <br />
-      <div class="send">
-        <button class="sendButton">Send</button>
+      <div>
+        <input type="email" name="email" placeholder="Your Email" />
+        <button>
+          <router-link to="">Send</router-link>
+        </button>
       </div>
     </main>
   </div>
@@ -26,17 +27,7 @@
 
 <script>
 export default {
-  name: "LostMatchMail",
-  data() {
-    return {
-      text: "Lost",
-    };
-  },
-  methods: {
-    TextInputPlaceholder(text) {
-      return text;
-    },
-  },
+  name: "LostMatchMailPage",
 };
 </script>
 
