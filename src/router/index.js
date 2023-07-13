@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/LandingPage.vue";
+
+import LostnonMatchPage from "../views/LostnonMatchPage.vue";
+
 import FoundMessagePage from "../views/FoundMessagePage.vue";
 import LostMatchPage from "../views/LostMatchPage.vue";
 import LostnonMatchPage from "../views/LostnonMatchPage.vue";
@@ -8,6 +11,7 @@ import ContactPage from "../views/ContactPage.vue";
 import ImpressumPage from "../views/ImpressumPage.vue";
 import LostPage from "../views/LostPage.vue";
 import FoundPage from "../views/FoundPage.vue";
+
 
 const routes = [
   {
@@ -26,6 +30,7 @@ const routes = [
     component: LostMatchPage,
   },
   {
+
     path: "/lost/lostnonmatchpage",
     name: "lostnonmatch",
     component: LostnonMatchPage,
