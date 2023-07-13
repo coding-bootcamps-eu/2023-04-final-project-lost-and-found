@@ -37,6 +37,18 @@ const routes = [
     name: "found",
     component: FoundPage,
   },
+  {
+    path: "/lost",
+    name: "lost",
+    component: () =>
+      import(/* webpackChunkName: "lost" */ "../views/LostPage.vue"),
+  },
+  {
+    path: "/found",
+    name: "found",
+    component: () =>
+      import(/* webpackChunkName: "found" */ "../views/FoundPage.vue"),
+  },
 ];
 
 const router = createRouter({

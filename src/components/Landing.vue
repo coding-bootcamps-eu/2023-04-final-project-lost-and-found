@@ -16,12 +16,14 @@
           <h3>Did you lose somthing?</h3>
           <h4>Here you can find it.</h4>
           <button @click="openLostPage">{{ ButtonTextLost() }}</button>
+          <router-view></router-view>
           <p>Tip-in your details and get a Match with a founder.</p>
         </div>
         <div class="boxFound">
           <h3>Did you find something?</h3>
           <h4>Here you can give it back.</h4>
           <button @click="openFoundPage">{{ ButtonTextFound() }}</button>
+          <router-view></router-view>
           <p>Tip-in your details and get a Match with the sad one.</p>
         </div>
       </div>
@@ -67,9 +69,11 @@ export default {
       return this.counterValue;
     },
     openLostPage() {
+      this.$router.push("/lost");
       // return Lost-Seite
     },
     openFoundPage() {
+      this.$router.push("/found");
       // return Found-Seite
     },
   },
