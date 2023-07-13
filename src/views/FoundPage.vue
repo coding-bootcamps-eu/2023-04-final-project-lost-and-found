@@ -41,7 +41,11 @@
     </select>
     <!--      EMAIL      -->
     <p>Please insert your email:</p>
-    <input type="email" :placeholder="TextInputPlaceholder('Email')" />
+    <input
+      type="email"
+      :placeholder="TextInputPlaceholder('Email')"
+      v-model="email"
+    />
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <input type="text" :placeholder="TextInputPlaceholder('Calendar')" />
@@ -59,6 +63,7 @@
     <input type="text" :placeholder="TextInputPlaceholder('Text')" /><button>
       {{ ButtonUpload() }}
     </button>
+    <button v-on:click="getData()">SUBMIT</button>
   </main>
 
   <footer>
@@ -73,6 +78,7 @@ export default {
   name: "DefaultComponent",
   data() {
     return {
+      email: null,
       optionsItem: [
         { value: "product", label: "Wallet" },
         { value: "product", label: "Bag" },
@@ -122,6 +128,9 @@ export default {
     },
     ButtonNext() {
       return "Next";
+    },
+    getData() {
+      console.warn("values : ", this.email);
     },
   },
 };
