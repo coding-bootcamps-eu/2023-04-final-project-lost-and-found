@@ -45,8 +45,7 @@
 
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
-    <input type="text" :placeholder="TextInputPlaceholder('Calendar')" />
-
+    <vue-date-picker></vue-date-picker>
     <!--      LOCATION      -->
     <p>Where did you lose it?</p>
     <input type="text" :placeholder="TextInputPlaceholder('Location')" />
@@ -70,8 +69,10 @@
 </template>
 
 <script>
+import VueDatePicker from "@/components/VueDatePicker.vue";
 export default {
   name: "DefaultComponent",
+  components: { VueDatePicker },
   data() {
     return {
       optionsItem: [
