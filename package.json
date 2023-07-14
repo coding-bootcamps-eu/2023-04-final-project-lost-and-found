@@ -9,6 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vuepic/vue-datepicker": "^5.4.0",
     "core-js": "^3.8.3",
     "pinia": "^2.1.4",
     "vue": "^3.2.13",
