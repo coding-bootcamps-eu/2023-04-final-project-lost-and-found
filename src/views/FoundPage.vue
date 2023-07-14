@@ -41,7 +41,8 @@
     </select>
     <!--      EMAIL      -->
     <p>Please insert your email:</p>
-    <input type="email" :placeholder="TextInputPlaceholder('Email')" />
+    <input type="email" placeholder="Enter your email address" />
+
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <input type="text" :placeholder="TextInputPlaceholder('Calendar')" />
