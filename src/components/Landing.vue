@@ -6,25 +6,59 @@
       </div>
     </header>
 
-    <aside class="text">
-      <h2>Hey, nice to have you here!</h2>
-    </aside>
-
     <main>
-      <div class="mainContent">
-        <div class="boxLost">
-          <h3>Did you lose somthing?</h3>
-          <h4>Here you can find it.</h4>
-          <button @click="openLostPage">{{ ButtonTextLost() }}</button>
-          <router-view></router-view>
-          <p>Tip-in your details and get a Match with a founder.</p>
+      <div class="lostCard">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img
+                src="../assets/lostLogo.png"
+                alt="Lost Logo"
+                style="width: 400px; height: 400px; border-radius: 25px"
+              />
+            </div>
+            <div class="flip-card-back">
+              <div class="boxLost">
+                <h3>Did you lose somthing?</h3>
+                <button @click="openLostPage">{{ ButtonTextLost() }}</button>
+                <router-view></router-view>
+                <h4>Press the Lost Button and you can find it.</h4>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="boxFound">
-          <h3>Did you find something?</h3>
-          <h4>Here you can give it back.</h4>
-          <button @click="openFoundPage">{{ ButtonTextFound() }}</button>
-          <router-view></router-view>
-          <p>Tip-in your details and get a Match with the sad one.</p>
+      </div>
+
+      <div class="heading">
+        <h1>
+          Hey there, <br />
+          nice to have you here !
+        </h1>
+        <br />
+        <p>Please choose your current state</p>
+      </div>
+
+      <div class="foundCard">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img
+                src="../assets/foundLogo.png"
+                alt="Found Logo"
+                style="width: 400px; height: 400px; border-radius: 25px"
+              />
+            </div>
+            <div class="flip-card-back">
+              <div class="boxFound">
+                <h3>Did you find somthing?</h3>
+                <button @click="openFoundPage">
+                  {{ ButtonTextFound() }}
+                </button>
+                <router-view></router-view>
+                <h4>Here you can give it back.</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -94,38 +128,41 @@ export default {
   height: auto;
 }
 
-aside {
-  background-color: #fff;
-  padding: 20px;
-}
-
-/* main {
+main {
   background-color: #f2f2f2;
-  padding: 20px;
-} */
-
-.mainContent {
+  padding: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  gap: 10%;
+  height: 65vh;
+  width: auto;
 }
 
 .boxLost {
-  background-color: #dbdbdb;
-  padding: 50px;
-  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 400px;
+  background-color: #8faadc;
   border-radius: 25px;
 }
 
 .boxFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 400px;
   background-color: #dbdbdb;
-  padding: 50px;
-  margin: 20px;
   border-radius: 25px;
 }
 
-aside .counter {
+.counter {
   background-color: #dbdbdb;
   padding: 20px;
   margin: 20px;
@@ -135,9 +172,7 @@ footer {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
   flex-wrap: wrap;
-
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -157,19 +192,26 @@ h1 {
 }
 
 h2 {
-  color: #555;
+  color: #333;
 }
 
 h3 {
-  color: #777;
+  color: #333;
+}
+h4 {
+  color: #333;
 }
 
 button {
+  height: 100px;
+  width: 200px;
   background-color: #4caf50;
   color: white;
-  padding: 10px 20px;
-  margin: 10px;
+  font-size: 2rem;
+  padding: 20px 20px;
+  margin: 50px 0;
   border: none;
+  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -188,5 +230,40 @@ li {
   left: 20px;
   background-color: #f2f2f2;
   padding: 10px;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 400px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 25px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
 }
 </style>

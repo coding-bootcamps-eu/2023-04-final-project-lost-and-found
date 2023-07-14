@@ -6,6 +6,7 @@
   </header>
 
   <main>
+    <p>Tip-in your details and get a Match with a founder.</p>
     <!--      ITEM      -->
     <p>What did you lose?</p>
     <select class="optionsItem">
