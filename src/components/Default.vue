@@ -183,7 +183,7 @@ export default {
 <style>
 /* SCOPED ? */
 header {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
@@ -192,25 +192,25 @@ main {
 }
 
 footer {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
 h1 {
-  color: #333;
+  color: #4c3d40;
 }
 
 h2 {
-  color: #555;
+  color: #4c3d40;
 }
 
 h3 {
-  color: #777;
+  color: #4c3d40;
 }
 
 button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #b1fd8b;
+  color: #4c3d40;
   padding: 10px 20px;
   margin: 10px;
   border: none;
