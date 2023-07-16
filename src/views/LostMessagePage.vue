@@ -1,28 +1,16 @@
 <template>
-  <div>
-    <header>
-      <div class="logo">
-        <img src="../assets/lostLogo.png" alt="Logo Lost" />
-      </div>
-    </header>
+  <header>
+    <div class="logo">
+      <img src="../assets/lostLogo.png" alt="Logo Lost" />
+    </div>
+  </header>
 
-    <main class="text">
-      <h2>
-        Please check also your email Postfach, you will also get an email from
-        us with the email add of the founder.
-      </h2>
-      <p>
-        Please insert your Email Address (we will forward it to the founder of
-        your product)
-      </p>
-      <div>
-        <input type="email" name="email" placeholder="Your Email" />
-        <button>
-          <router-link to="">Send</router-link>
-        </button>
-      </div>
-    </main>
-  </div>
+  <main class="text">
+    <h2>
+      Please check your mails, you will get an email from us with the email add
+      of the founder.
+    </h2>
+  </main>
 
   <footer>
     <nav>
@@ -34,11 +22,7 @@
   </footer>
 </template>
 
-<script>
-export default {
-  name: "LostMatchMailPage",
-};
-</script>
+<script></script>
 
 <style scoped>
 *,

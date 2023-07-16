@@ -41,18 +41,22 @@
     </select>
     <!--      EMAIL      -->
     <p>Please insert your email:</p>
-    <input type="email" :placeholder="TextInputPlaceholder('Email')" />
+    <input type="email" placeholder="Enter your email address" />
+
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
-    <input type="text" :placeholder="TextInputPlaceholder('Calendar')" />
-
+    <vue-date-picker></vue-date-picker>
     <!--      LOCATION      -->
     <p>Where did you lose it?</p>
     <input type="text" :placeholder="TextInputPlaceholder('Location')" />
 
     <!--      DESCRIPTION      -->
     <p>Describe it in your own words: (optional)</p>
-    <input type="text" :placeholder="TextInputPlaceholder('Text')" />
+    <input
+      class="describeText"
+      type="text"
+      :placeholder="TextInputPlaceholder('Text')"
+    />
 
     <!--      PICTURE UPLOAD      -->
     <p>Picture upload (optional)</p>
@@ -69,7 +73,9 @@
 </template>
 
 <script>
+import VueDatePicker from "@/components/VueDatePicker.vue";
 export default {
+  components: { VueDatePicker },
   name: "DefaultComponent",
   data() {
     return {
@@ -127,52 +133,52 @@ export default {
 <style scoped>
 /* SCOPED ? */
 header {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
 main {
   padding: 20px;
+  background-color: #a6b8fc;
 }
 
 footer {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
-h1 {
-  color: #333;
-}
-
-h2 {
-  color: #555;
-}
-
-h3 {
-  color: #777;
-}
-
 button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #b1fd8b;
+  color: #4c3d40;
   padding: 10px 20px;
   margin: 10px;
   border: none;
   cursor: pointer;
 }
 
-input,
+input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 278px;
+  border: none;
+  border-radius: 25px;
+}
+
 select {
   margin: 10px 0;
   padding: 10px;
+  width: 300px;
+  border: none;
+  border-radius: 25px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+p {
+  color: #f5f1f1;
+  padding-top: 30px;
+  margin-bottom: 0;
+  font-size: 20px;
 }
-
-li {
-  margin-bottom: 10px;
+.describeText {
+  height: 100px;
 }
 </style>

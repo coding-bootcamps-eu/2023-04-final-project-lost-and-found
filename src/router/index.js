@@ -7,7 +7,7 @@ import FoundMessagePage from "../views/FoundMessagePage.vue";
 import LostnonMatchPage from "../views/LostnonMatchPage.vue";
 import AboutPage from "../views/AboutPage.vue";
 import ContactPage from "../views/ContactPage.vue";
-import ImpressumPage from "../views/ImpressumPage.vue";
+import ImprintPage from "../views/ImprintPage.vue";
 
 const routes = [
   {
@@ -41,9 +41,9 @@ const routes = [
     component: ContactPage,
   },
   {
-    path: "/impressum",
-    name: "impressum",
-    component: ImpressumPage,
+    path: "/imprint",
+    name: "imprint",
+    component: ImprintPage,
   },
   {
     path: "/lost",

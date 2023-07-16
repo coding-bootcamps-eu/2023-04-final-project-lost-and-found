@@ -32,19 +32,15 @@
 
     <!-- EMAIL -->
     <p>Please insert your email:</p>
+    <<<<<<< 51-build-submit-button
     <input
       type="email"
       :placeholder="TextInputPlaceholder('Email')"
       v-model="email"
     />
-
-    <!-- DATE/TIME -->
+    <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
-    <input
-      type="text"
-      :placeholder="TextInputPlaceholder('Calendar')"
-      v-model="dateTime"
-    />
+    <vue-date-picker></vue-date-picker>
 
     <!-- LOCATION -->
     <p>Where did you lose it?</p>
@@ -82,8 +78,10 @@
 </template>
 
 <script>
+import VueDatePicker from "@/components/VueDatePicker.vue";
 export default {
   name: "DefaultComponent",
+  components: { VueDatePicker },
   data() {
     return {
       email: null,
@@ -226,52 +224,56 @@ export default {
 <style scoped>
 /* SCOPED ? */
 header {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
 main {
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
 footer {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
-h1 {
-  color: #333;
-}
-
-h2 {
-  color: #555;
-}
-
-h3 {
-  color: #777;
-}
-
 button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #b1fd8b;
+  color: #4c3d40;
   padding: 10px 20px;
   margin: 10px;
   border: none;
   cursor: pointer;
 }
 
-input,
+input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 278px;
+  border: none;
+  border-radius: 25px;
+}
+
 select {
   margin: 10px 0;
   padding: 10px;
+  width: 300px;
+  border: none;
+  border-radius: 25px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+p {
+  color: #a6b8fc;
+  padding-top: 30px;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+.describeText {
+  height: 100px;
 }
 
-li {
-  margin-bottom: 10px;
+footer {
+  background-color: white;
 }
 </style>

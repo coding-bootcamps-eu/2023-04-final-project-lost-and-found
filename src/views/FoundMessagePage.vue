@@ -5,7 +5,7 @@
     </div>
   </header>
 
-  <main>
+  <main class="text">
     <h2>
       Thank you for the advertisement! You will make someone very happy again!
     </h2>
@@ -25,31 +25,41 @@
 <script></script>
 
 <style scoped>
-/* SCOPED ? */
-header {
-  background-color: #f2f2f2;
-  padding: 20px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-main {
-  padding: 20px;
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
   background-color: #f2f2f2;
   padding: 20px;
 }
 
 h1 {
   color: #333;
-}
-
-h2 {
-  color: #555;
-}
-
-h3 {
-  color: #777;
 }
 
 button {
@@ -59,20 +69,5 @@ button {
   margin: 10px;
   border: none;
   cursor: pointer;
-}
-
-input,
-select {
-  margin: 10px 0;
-  padding: 10px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
 }
 </style>
