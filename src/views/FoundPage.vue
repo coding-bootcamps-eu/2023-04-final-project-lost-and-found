@@ -7,7 +7,7 @@
 
   <main>
     <!-- ITEM -->
-    <p>What did you lose?</p>
+    <p>What did you find?</p>
     <select v-model="selectedItem" class="optionsItem">
       <option v-for="option in optionsItem" :key="option.value">
         {{ option.label }}
