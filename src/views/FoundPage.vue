@@ -152,6 +152,14 @@ export default {
         description: this.description,
         picture: this.picture,
       };
+      this.email = "";
+      this.selectedItem = "";
+      this.selectedColor = "";
+      this.selectedMaterial = "";
+      this.dateTime = "";
+      this.location = "";
+      this.description = "";
+      this.picture = "";
 
       console.log("Data:", data);
 
@@ -197,6 +205,7 @@ export default {
           .then((req) => req.json(uploadOBJ))
           .then((result) => {
             console.log(result);
+            alert("Vielen Dank für Ihre Eingabe!");
           });
       }
 
