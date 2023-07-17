@@ -41,7 +41,11 @@
     </select>
     <!--      EMAIL      -->
     <p>Please insert your email:</p>
-    <input type="email" placeholder="Enter your email address" />
+    <input
+      type="email"
+      :placeholder="TextInputPlaceholder('Email')"
+      v-model="email"
+    />
 
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
