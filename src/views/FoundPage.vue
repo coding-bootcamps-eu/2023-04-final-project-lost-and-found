@@ -6,36 +6,26 @@
   </header>
 
   <main>
-    <!--      ITEM      -->
+    <!-- ITEM -->
     <p>What did you lose?</p>
-    <select class="optionsItem">
-      <option
-        v-for="option in optionsItem"
-        :value="option.value"
-        :key="option.value"
-      >
+    <select v-model="selectedItem" class="optionsItem">
+      <option v-for="option in optionsItem" :key="option.value">
         {{ option.label }}
       </option>
     </select>
-    <!--      COLOR      -->
+
+    <!-- COLOR -->
     <p>What is the basic color?</p>
-    <select class="optionsColor">
-      <option
-        v-for="option in optionsColor"
-        :value="option.value"
-        :key="option.value"
-      >
+    <select v-model="selectedColor" class="optionsColor">
+      <option v-for="option in optionsColor" :key="option.value">
         {{ option.label }}
       </option>
     </select>
-    <!--      MATERIAL      -->
+
+    <!-- MATERIAL -->
     <p>What is the basic material?</p>
-    <select class="optionsMaterial">
-      <option
-        v-for="option in optionsMaterial"
-        :value="option.value"
-        :key="option.value"
-      >
+    <select v-model="selectedMaterial" class="optionsMaterial">
+      <option v-for="option in optionsMaterial" :key="option.value">
         {{ option.label }}
       </option>
     </select>
@@ -53,22 +43,38 @@
       <button type="submit">E-Mail senden</button>
     </form>
 
+
+   
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <vue-date-picker></vue-date-picker>
-    <!--      LOCATION      -->
+
+    <!-- LOCATION -->
     <p>Where did you lose it?</p>
-    <input type="text" :placeholder="TextInputPlaceholder('Location')" />
+    <input
+      type="text"
+      :placeholder="TextInputPlaceholder('Location')"
+      v-model="location"
+    />
 
-    <!--      DESCRIPTION      -->
+    <!-- DESCRIPTION -->
     <p>Describe it in your own words: (optional)</p>
-    <input type="text" :placeholder="TextInputPlaceholder('Text')" />
+    <input
+      type="text"
+      :placeholder="TextInputPlaceholder('Text')"
+      v-model="description"
+    />
 
-    <!--      PICTURE UPLOAD      -->
+    <!-- PICTURE UPLOAD -->
     <p>Picture upload (optional)</p>
-    <input type="text" :placeholder="TextInputPlaceholder('Text')" /><button>
-      {{ ButtonUpload() }}
-    </button>
+    <input
+      type="text"
+      :placeholder="TextInputPlaceholder('Text')"
+      v-model="picture"
+    />
+    <button>upload</button>
+    <br />
+    <button @click="getData()">SUBMIT</button>
   </main>
 
   <footer>
@@ -85,35 +91,40 @@ export default {
   components: { VueDatePicker },
   data() {
     return {
+      email: null,
+      selectedItem: null,
+      selectedColor: null,
+      selectedMaterial: null,
+      dateTime: null,
+      location: null,
+      description: null,
+      picture: null,
       optionsItem: [
-        { value: "product", label: "Wallet" },
-        { value: "product", label: "Bag" },
-        { value: "product", label: "Phone" },
-        { value: "product", label: "Watch" },
-        { value: "product", label: "Key" },
-        { value: "product", label: "Clothing" },
+        { label: "Wallet" },
+        { label: "Bag" },
+        { label: "Phone" },
+        { label: "Watch" },
+        { label: "Key" },
+        { label: "Clothing" },
       ],
-
       optionsColor: [
-        { value: "color", label: "Black" },
-        { value: "color", label: "White" },
-        { value: "color", label: "Brown" },
-        { value: "color", label: "Red" },
-        { value: "color", label: "Green" },
-        { value: "color", label: "Blue" },
-        { value: "color", label: "Yellow" },
-        { value: "color", label: "Silver" },
-        { value: "color", label: "Gold" },
+        { label: "Black" },
+        { label: "White" },
+        { label: "Brown" },
+        { label: "Red" },
+        { label: "Green" },
+        { label: "Blue" },
+        { label: "Yellow" },
+        { label: "Silver" },
+        { label: "Gold" },
       ],
-
       optionsMaterial: [
-        { value: "material", label: "Kind of Leather" },
-        { value: "material", label: "Kind of Plastic" },
-        { value: "material", label: "Kind of Metal" },
-        { value: "material", label: "Kind of Wood" },
-        { value: "material", label: "Kind of textiles" },
+        { label: "All kinds of leather" },
+        { label: "All kinds of plastic" },
+        { label: "All kinds of metal" },
+        { label: "All kinds of wood" },
+        { label: "All kinds textiles" },
       ],
-
       listItems: [
         "Placeholder für Item-Liste oder Item nachdem User-Auswahl getroffen wurde",
       ],
@@ -135,6 +146,84 @@ export default {
     ButtonNext() {
       return "Next";
     },
+    getData() {
+      const data = {
+        email: this.email,
+        selectedItem: this.selectedItem,
+        selectedColor: this.selectedColor,
+        selectedMaterial: this.selectedMaterial,
+        dateTime: this.dateTime,
+        location: this.location,
+        description: this.description,
+        picture: this.picture,
+      };
+      this.email = "";
+      this.selectedItem = "";
+      this.selectedColor = "";
+      this.selectedMaterial = "";
+      this.dateTime = "";
+      this.location = "";
+      this.description = "";
+      this.picture = "";
+
+      console.log("Data:", data);
+
+      let url = "http://localhost:31415/filters";
+      fetch(url, {
+        method: "GET",
+        body: JSON.stringify(),
+      })
+        .then((req) => req.json())
+        .then((result) => {
+          console.log(result);
+          loadFilter(result, data);
+        });
+
+      function loadFilter(apiData, UIData) {
+        // fetch load to API
+        const productValue = getID(apiData.products, UIData, "selectedItem");
+        const colorValue = getID(apiData.colors, UIData, "selectedColor");
+        const materialValue = getID(
+          apiData.materials,
+          UIData,
+          "selectedMaterial"
+        );
+
+        const uploadOBJ = {
+          productId: productValue,
+          colorId: colorValue,
+          materialId: materialValue,
+          timestampID: UIData.dateTime,
+          location: UIData.location,
+          description: UIData.description,
+          email: UIData.email,
+          hasMatch: false,
+        };
+
+        fetch("http://localhost:31415/entries", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(uploadOBJ),
+        })
+          .then((req) => req.json(uploadOBJ))
+          .then((result) => {
+            console.log(result);
+            alert("Vielen Dank für Ihre Eingabe!");
+          });
+      }
+
+      function getID(apiArr, UIData, UIDataKey) {
+        let result = "";
+        apiArr.forEach((element) => {
+          if (element.name === UIData[UIDataKey]) {
+            result = element.id;
+          }
+        });
+        return result;
+      }
+    },
   },
 };
 </script>
@@ -142,52 +231,56 @@ export default {
 <style scoped>
 /* SCOPED ? */
 header {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
 main {
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
 footer {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
-h1 {
-  color: #333;
-}
-
-h2 {
-  color: #555;
-}
-
-h3 {
-  color: #777;
-}
-
 button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #b1fd8b;
+  color: #4c3d40;
   padding: 10px 20px;
   margin: 10px;
   border: none;
   cursor: pointer;
 }
 
-input,
+input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 278px;
+  border: none;
+  border-radius: 25px;
+}
+
 select {
   margin: 10px 0;
   padding: 10px;
+  width: 300px;
+  border: none;
+  border-radius: 25px;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+p {
+  color: #a6b8fc;
+  padding-top: 30px;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+.describeText {
+  height: 100px;
 }
 
-li {
-  margin-bottom: 10px;
+footer {
+  background-color: white;
 }
 </style>

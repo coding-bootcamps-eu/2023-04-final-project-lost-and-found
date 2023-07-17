@@ -6,46 +6,50 @@
       </div>
     </header>
 
-    <aside class="text">
-      <h2>Hey, nice to have you here!</h2>
-    </aside>
-
     <main>
+      <h1>Hey, nice to have you here!</h1>
       <div class="mainContent">
         <div class="boxLost">
-          <h3>Did you lose somthing?</h3>
-          <h4>Here you can find it.</h4>
-          <button @click="openLostPage">{{ ButtonTextLost() }}</button>
+          <h2>Did you lose somthing?</h2>
+          <h3>Here you can find it.</h3>
+          <small>Tip-in your details and get a MATCH!</small><br />
+          <button class="btnLost" @click="openLostPage">
+            {{ ButtonTextLost() }}
+          </button>
           <router-view></router-view>
-          <p>Tip-in your details and get a Match with a founder.</p>
         </div>
         <div class="boxFound">
-          <h3>Did you find something?</h3>
-          <h4>Here you can give it back.</h4>
-          <button @click="openFoundPage">{{ ButtonTextFound() }}</button>
+          <h2>Did you find something?</h2>
+          <h3>Here you can give it back.</h3>
+          <small>Tip-in your details and get a MATCH!</small><br />
+          <button class="btnFound" @click="openFoundPage">
+            {{ ButtonTextFound() }}
+          </button>
           <router-view></router-view>
-          <p>Tip-in your details and get a Match with the sad one.</p>
         </div>
       </div>
     </main>
 
     <aside class="counter">
-      <h3>Counter</h3>
+      <h3>MATCH</h3>
       <p>{{ counterValue }}</p>
       <!-- <button @click="counterValue++">Increment</button>
       <button @click="counterValue--">Decrement</button> -->
     </aside>
 
     <footer>
-      <nav>
-        <router-link to="/about">About us</router-link>
-      </nav>
-      <nav>
-        <router-link to="/contact">Contact</router-link>
-      </nav>
-      <nav>
-        <router-link to="/impressum">Impressum</router-link>
-      </nav>
+      <div class="footerLinks">
+        <nav>
+          <router-link to="/about">About us</router-link>
+        </nav>
+        <nav>
+          <router-link to="/contact">Contact</router-link>
+        </nav>
+        <nav>
+          <router-link to="/imprint">Imprint</router-link>
+        </nav>
+      </div>
+      <div><p class="copyright">© 2023 Lost & Found</p></div>
     </footer>
   </div>
 </template>
@@ -60,10 +64,10 @@ export default {
   },
   methods: {
     ButtonTextLost() {
-      return "Lost";
+      return "LOST";
     },
     ButtonTextFound() {
-      return "Found";
+      return "FOUND";
     },
     CounterValue() {
       return this.counterValue;
@@ -94,15 +98,9 @@ export default {
   height: auto;
 }
 
-aside {
-  background-color: #fff;
+main {
   padding: 20px;
 }
-
-/* main {
-  background-color: #f2f2f2;
-  padding: 20px;
-} */
 
 .mainContent {
   display: flex;
@@ -112,65 +110,54 @@ aside {
 }
 
 .boxLost {
-  background-color: #dbdbdb;
   padding: 50px;
   margin: 20px;
   border-radius: 25px;
 }
 
 .boxFound {
-  background-color: #dbdbdb;
   padding: 50px;
   margin: 20px;
   border-radius: 25px;
 }
 
-aside .counter {
-  background-color: #dbdbdb;
-  padding: 20px;
-  margin: 20px;
-}
-
-footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  flex-wrap: wrap;
-
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
 a {
   text-decoration: none;
-  color: #333;
+  color: #4c3d40;
   margin: 0 10px;
 }
 
 h1 {
-  color: #333;
+  color: #4c3d40;
+  padding-top: 30px;
 }
 
 h2 {
-  color: #555;
+  color: #4c3d40;
 }
 
 h3 {
-  color: #777;
+  color: #4c3d40;
+  padding-bottom: 20px;
 }
 
 button {
-  background-color: #4caf50;
-  color: white;
+  font-size: 30px;
   padding: 10px 20px;
-  margin: 10px;
+  margin: 50px;
   border: none;
   cursor: pointer;
+  border-radius: 30px;
+}
+
+.btnFound {
+  background-color: #f5f1f1;
+  color: #a6b8fc;
+}
+
+.btnLost {
+  color: #f5f1f1;
+  background-color: #a6b8fc;
 }
 
 ul {
@@ -184,9 +171,26 @@ li {
 
 .counter {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: #f2f2f2;
+  bottom: 150px;
+  left: 10px;
+  background-color: #b1fd8b;
   padding: 10px;
+}
+
+footer {
+  width: 100%;
+  height: 130px;
+  background-color: #f5f1f1;
+  padding: 20px;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+}
+
+.copyright {
+  padding-top: 30px;
+  color: rgb(155, 156, 158);
 }
 </style>
