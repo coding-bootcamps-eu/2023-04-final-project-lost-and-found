@@ -43,8 +43,6 @@
       <button type="submit">E-Mail senden</button>
     </form>
 
-
-   
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <vue-date-picker></vue-date-picker>
