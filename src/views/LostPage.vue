@@ -154,7 +154,69 @@ export default {
       this.location = "";
       this.description = "";
       this.picture = "";
-      console.log(data);
+      let urlEntries = "http://localhost:31415/entries";
+      let urlFilters = "http://localhost:31415/filters";
+
+      const UIDataInputKEYS = {
+        itemId: "",
+        materialId: "",
+        colorId: "",
+      };
+
+      fetch(urlFilters, {
+        method: "GET",
+        body: JSON.stringify(),
+      })
+        .then((req) => req.json())
+        .then((result) => {
+          UIDataInputKEYS.itemId = getID(result.products, data, "selectedItem");
+          UIDataInputKEYS.materialId = getID(
+            result.materials,
+            data,
+            "selectedMaterial"
+          );
+          UIDataInputKEYS.colorId = getID(result.colors, data, "selectedColor");
+          checkMatch(UIDataInputKEYS);
+        });
+
+      function getID(apiArr, UIData, UIDataKey) {
+        let result = "";
+        apiArr.forEach((element) => {
+          if (element.name === UIData[UIDataKey]) {
+            result = element.id;
+          }
+        });
+        return result;
+      }
+      function checkMatch(UserInputKeysOBJ) {
+        fetch(urlEntries, {
+          method: "GET",
+          body: JSON.stringify(),
+        })
+          .then((req) => req.json())
+          .then((result) => {
+            const matches = [];
+            result.forEach((element) => {
+              if (
+                element.materialId === UserInputKeysOBJ.materialId &&
+                element.colorId === UserInputKeysOBJ.colorId &&
+                element.productId === UserInputKeysOBJ.itemId
+              ) {
+                matches.push(element);
+              }
+            });
+
+            if (matches.length >= 1) {
+              alert(
+                "Herzlichen Glückwunsch. Wir haben potentielle Treffer für Dich"
+              );
+            } else {
+              alert(
+                "Danke für Deine Eingaben. Leider haben wir keine Treffer gefunden. Wir werden Dich benachrichtigen, sobald es einen Match geben sollte"
+              );
+            }
+          });
+      }
     },
   },
 };
