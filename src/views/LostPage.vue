@@ -1,8 +1,6 @@
 <template>
   <header>
-    <div class="logo">
-      <img src="../assets/lostLogo.png" alt="Logo Lost" />
-    </div>
+    <h1 class="lost">LOST</h1>
   </header>
 
   <main>
@@ -52,6 +50,7 @@
     <!-- DESCRIPTION -->
     <p>Describe it in your own words: (optional)</p>
     <input
+      class="description"
       type="text"
       :placeholder="TextInputPlaceholder('Text')"
       v-model="description"
@@ -66,7 +65,7 @@
     />
     <button>upload</button>
     <br />
-    <button @click="sendData()">SUBMIT</button>
+    <button class="submit" @click="sendData()">SUBMIT</button>
   </main>
 
   <footer>
@@ -225,10 +224,19 @@ export default {
 <style scoped>
 /* SCOPED ? */
 header {
-  background-color: #f5f1f1;
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #a6b8fc;
 }
 
+.lost {
+  color: #f5f1f1;
+  padding-top: 50px;
+}
+h1 {
+  font-size: 50px;
+}
 main {
   padding: 20px;
   background-color: #a6b8fc;
@@ -253,7 +261,7 @@ input {
   padding: 10px;
   width: 278px;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 select {
@@ -261,7 +269,7 @@ select {
   padding: 10px;
   width: 300px;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 p {
@@ -270,7 +278,11 @@ p {
   margin-bottom: 0;
   font-size: 20px;
 }
-.describeText {
+.submit {
+  margin: 50px;
+  font-size: larger;
+}
+.description {
   height: 100px;
 }
 </style>
