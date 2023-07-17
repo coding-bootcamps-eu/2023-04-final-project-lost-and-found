@@ -35,7 +35,7 @@
       <input
         type="email"
         name="toEmail"
-        placeholder="E-Mail-Adresse"
+        placeholder="Deine E-Mail-Adresse"
         required
       />
     </form>
