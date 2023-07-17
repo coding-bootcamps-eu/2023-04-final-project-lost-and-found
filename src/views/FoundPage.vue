@@ -30,13 +30,19 @@
       </option>
     </select>
 
-    <!-- EMAIL -->
-    <p>Please insert your email:</p>
-    <input
-      type="email"
-      :placeholder="TextInputPlaceholder('Email')"
-      v-model="email"
-    />
+    <!--      EMAIL      -->
+    <form action="http://localhost:31415/api/send-email" method="post">
+      <input
+        type="email"
+        name="toEmail"
+        placeholder="E-Mail-Adresse"
+        required
+      />
+      <!-- Button nur zu testzwecken muss bei fertigstellung gelöscht werden 
+      bzw. mit click event von submit am ende der abfrage verbunden werden -->
+      <button type="submit">E-Mail senden</button>
+    </form>
+
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <vue-date-picker></vue-date-picker>
