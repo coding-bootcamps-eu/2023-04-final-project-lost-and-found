@@ -38,9 +38,6 @@
         placeholder="E-Mail-Adresse"
         required
       />
-      <!-- Button nur zu testzwecken muss bei fertigstellung gelöscht werden 
-      bzw. mit click event von submit am ende der abfrage verbunden werden -->
-      <button type="submit">E-Mail senden</button>
     </form>
 
     <!--      DATE/TIME      -->
