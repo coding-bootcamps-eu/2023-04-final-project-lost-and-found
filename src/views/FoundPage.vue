@@ -32,7 +32,6 @@
 
     <!-- EMAIL -->
     <p>Please insert your email:</p>
-    <<<<<<< 51-build-submit-button
     <input
       type="email"
       :placeholder="TextInputPlaceholder('Email')"
