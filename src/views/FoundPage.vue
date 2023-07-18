@@ -30,7 +30,7 @@
 
     <!--      EMAIL      -->
     <p>Please insert your email:</p>
-    <form action="http://localhost:31415/api/send-email" method="post">
+    <form action="http://localhost:14142/api/send-email" method="post">
       <input
         type="email"
         name="toEmail"
