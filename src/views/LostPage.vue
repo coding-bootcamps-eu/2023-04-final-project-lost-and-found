@@ -67,7 +67,7 @@
     />
     <button>upload</button>
     <br />
-    <button @click="sendData()">SUBMIT</button>
+    <button class="submit" @click="sendData()">SUBMIT</button>
   </main>
 
   <footer>

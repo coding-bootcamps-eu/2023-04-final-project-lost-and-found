@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import router from "../router/index";
 import VueDatePicker from "@/components/VueDatePicker.vue";
 export default {
   name: "DefaultComponent",
@@ -204,7 +205,8 @@ export default {
           .then((req) => req.json(uploadOBJ))
           .then((result) => {
             console.log(result);
-            alert("Vielen Dank für Ihre Eingabe!");
+            router.push("/found/foundmessagepage");
+            //alert("Vielen Dank für Ihre Eingabe!");
           });
       }
 
