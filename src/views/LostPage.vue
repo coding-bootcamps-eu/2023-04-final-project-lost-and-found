@@ -31,6 +31,7 @@
     <!--      EMAIL      -->
     <form action="http://localhost:31415/send-email" method="post">
       <input
+        v-model="email"
         type="email"
         name="toEmail"
         placeholder="Deine E-Mail-Adresse"
@@ -219,10 +220,13 @@ export default {
             });
 
             if (matches.length >= 1) {
-              alert(
-                "Herzlichen Glückwunsch. Wir haben potentielle Treffer für Dich"
-              );
+              // alert(
+              //   "Herzlichen Glückwunsch. Wir haben potentielle Treffer für Dich"
+              // );
+              console.log("KLAPPT DAS?");
               matchesStore.setData(matches);
+              console.log(matchesStore);
+              console.log(matches);
             } else {
               router.push("/lost/lostnonmatchpage");
             }

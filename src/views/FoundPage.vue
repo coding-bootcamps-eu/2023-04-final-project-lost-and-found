@@ -32,6 +32,7 @@
     <p>Please insert your email:</p>
     <form action="http://localhost:31415/send-email" method="post">
       <input
+        v-model="email"
         type="email"
         name="toEmail"
         placeholder="Deine E-Mail-Adresse"
