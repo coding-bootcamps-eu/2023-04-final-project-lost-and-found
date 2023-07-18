@@ -1,17 +1,16 @@
 <template>
   <div>
-    <header>
-      <div class="logo">
-        <img src="../assets/logo.png" alt="Logo" />
-      </div>
+    <header class="header">
+      <h1 class="lost">LOST&</h1>
+      <h1 class="found">FOUND</h1>
     </header>
 
     <main>
-      <h1>Hey, nice to have you here!</h1>
+      <h2>Hey, nice to have you here!</h2>
       <div class="mainContent">
         <div class="boxLost">
-          <h2>Did you lose somthing?</h2>
-          <h3>Here you can find it.</h3>
+          <h3>Did you lose something?</h3>
+          <h4>Here you can find it.</h4>
           <small>Tip-in your details and get a MATCH!</small><br />
           <button class="btnLost" @click="openLostPage">
             {{ ButtonTextLost() }}
@@ -19,8 +18,8 @@
           <router-view></router-view>
         </div>
         <div class="boxFound">
-          <h2>Did you find something?</h2>
-          <h3>Here you can give it back.</h3>
+          <h3>Did you find something?</h3>
+          <h4>Here you can give it back.</h4>
           <small>Tip-in your details and get a MATCH!</small><br />
           <button class="btnFound" @click="openFoundPage">
             {{ ButtonTextFound() }}
@@ -93,11 +92,6 @@ export default {
   padding: 0;
 }
 
-.logo img {
-  width: 100%;
-  height: auto;
-}
-
 main {
   padding: 20px;
 }
@@ -119,6 +113,30 @@ main {
   padding: 50px;
   margin: 20px;
   border-radius: 25px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 100px;
+}
+
+.lost {
+  background-color: #a6b8fc;
+  color: #f5f1f1;
+  padding-left: 50%;
+  padding-bottom: 25px;
+}
+
+.found {
+  background-color: #f5f1f1;
+  color: #a6b8fc;
+  padding-right: 50%;
+}
+
+h1 {
+  font-size: 50px;
 }
 
 a {
@@ -153,20 +171,13 @@ button {
 .btnFound {
   background-color: #f5f1f1;
   color: #a6b8fc;
+  font-weight: 900;
 }
 
 .btnLost {
   color: #f5f1f1;
   background-color: #a6b8fc;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
+  font-weight: 900;
 }
 
 .counter {
@@ -192,5 +203,6 @@ footer {
 .copyright {
   padding-top: 30px;
   color: rgb(155, 156, 158);
+  font-size: smaller;
 }
 </style>
