@@ -80,16 +80,16 @@
 <script>
 import router from "../router/index";
 import VueDatePicker from "@/components/VueDatePicker.vue";
-//import { MatchesStore } from "@/stores/matchesStore";
+import { useMatchesStore } from "@/stores/matchesStore";
 
 export default {
-  // setup() {
-  //   const matchesStore = MatchesStore();
-  //    console.log(matchesStore);
-  //   return {
-  //     matchesStore,
-  //   };
-  // },
+  setup() {
+    const matchesStore = useMatchesStore();
+    console.log(matchesStore);
+    return {
+      matchesStore,
+    };
+  },
   components: { VueDatePicker },
   name: "DefaultComponent",
   data() {
@@ -147,7 +147,7 @@ export default {
       return "Next";
     },
     sendData() {
-      // const matchesStore = this.matchesStore;
+      const matchesStore = this.matchesStore;
       const data = {
         email: this.email,
         selectedItem: this.selectedItem,
@@ -222,7 +222,7 @@ export default {
               alert(
                 "Herzlichen Glückwunsch. Wir haben potentielle Treffer für Dich"
               );
-              // matchesStore.setData(matches);
+              matchesStore.setData(matches);
             } else {
               router.push("/lost/lostnonmatchpage");
             }
