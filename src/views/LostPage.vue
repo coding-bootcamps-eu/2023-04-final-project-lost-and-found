@@ -4,60 +4,65 @@
   </header>
 
   <main>
-    <!-- ITEM -->
-    <p>What did you find?</p>
-    <select v-model="selectedItem" class="optionsItem">
-      <option v-for="option in optionsItem" :key="option.value">
+    <!--      ITEM      -->
+    <p>What did you lose?</p>
+    <select class="optionsItem">
+      <option
+        v-for="option in optionsItem"
+        :value="option.value"
+        :key="option.value"
+      >
         {{ option.label }}
       </option>
     </select>
-
-    <!-- COLOR -->
+    <!--      COLOR      -->
     <p>What is the basic color?</p>
-    <select v-model="selectedColor" class="optionsColor">
-      <option v-for="option in optionsColor" :key="option.value">
+    <select class="optionsColor">
+      <option
+        v-for="option in optionsColor"
+        :value="option.value"
+        :key="option.value"
+      >
         {{ option.label }}
       </option>
     </select>
-
-    <!-- MATERIAL -->
+    <!--      MATERIAL      -->
     <p>What is the basic material?</p>
-    <select v-model="selectedMaterial" class="optionsMaterial">
-      <option v-for="option in optionsMaterial" :key="option.value">
+    <select class="optionsMaterial">
+      <option
+        v-for="option in optionsMaterial"
+        :value="option.value"
+        :key="option.value"
+      >
         {{ option.label }}
       </option>
     </select>
-
-    <!-- EMAIL -->
+    <!--      EMAIL      -->
     <p>Please insert your email:</p>
-    <input
-      type="email"
-      :placeholder="TextInputPlaceholder('Email')"
-      v-model="email"
-    />
+    <input type="email" placeholder="Enter your email address" />
+
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <vue-date-picker></vue-date-picker>
-
-    <!-- LOCATION -->
+    <!--      LOCATION      -->
     <p>Where did you lose it?</p>
-    <input
-      type="text"
-      :placeholder="TextInputPlaceholder('Location')"
-      v-model="location"
-    />
+    <input type="text" :placeholder="TextInputPlaceholder('Location')" />
 
-    <!-- DESCRIPTION -->
+    <!--      DESCRIPTION      -->
     <p>Describe it in your own words: (optional)</p>
     <input
+<<<<<<< HEAD
       class="description"
+=======
+      class="describeText"
+>>>>>>> main
       type="text"
       :placeholder="TextInputPlaceholder('Text')"
-      v-model="description"
     />
 
-    <!-- PICTURE UPLOAD -->
+    <!--      PICTURE UPLOAD      -->
     <p>Picture upload (optional)</p>
+<<<<<<< HEAD
     <input
       type="text"
       :placeholder="TextInputPlaceholder('Text')"
@@ -66,6 +71,11 @@
     <button>upload</button>
     <br />
     <button class="submit" @click="sendData()">SUBMIT</button>
+=======
+    <input type="text" :placeholder="TextInputPlaceholder('Text')" /><button>
+      {{ ButtonUpload() }}
+    </button>
+>>>>>>> main
   </main>
 
   <footer>
@@ -82,40 +92,35 @@ export default {
   name: "DefaultComponent",
   data() {
     return {
-      email: null,
-      selectedItem: null,
-      selectedColor: null,
-      selectedMaterial: null,
-      dateTime: null,
-      location: null,
-      description: null,
-      picture: null,
       optionsItem: [
-        { label: "Wallet" },
-        { label: "Bag" },
-        { label: "Phone" },
-        { label: "Watch" },
-        { label: "Key" },
-        { label: "Clothing" },
+        { value: "product", label: "Wallet" },
+        { value: "product", label: "Bag" },
+        { value: "product", label: "Phone" },
+        { value: "product", label: "Watch" },
+        { value: "product", label: "Key" },
+        { value: "product", label: "Clothing" },
       ],
+
       optionsColor: [
-        { label: "Black" },
-        { label: "White" },
-        { label: "Brown" },
-        { label: "Red" },
-        { label: "Green" },
-        { label: "Blue" },
-        { label: "Yellow" },
-        { label: "Silver" },
-        { label: "Gold" },
+        { value: "color", label: "Black" },
+        { value: "color", label: "White" },
+        { value: "color", label: "Brown" },
+        { value: "color", label: "Red" },
+        { value: "color", label: "Green" },
+        { value: "color", label: "Blue" },
+        { value: "color", label: "Yellow" },
+        { value: "color", label: "Silver" },
+        { value: "color", label: "Gold" },
       ],
+
       optionsMaterial: [
-        { label: "All kinds of leather" },
-        { label: "All kinds of plastic" },
-        { label: "All kinds of metal" },
-        { label: "All kinds of wood" },
-        { label: "All kinds textiles" },
+        { value: "material", label: "Kind of Leather" },
+        { value: "material", label: "Kind of Plastic" },
+        { value: "material", label: "Kind of Metal" },
+        { value: "material", label: "Kind of Wood" },
+        { value: "material", label: "Kind of textiles" },
       ],
+
       listItems: [
         "Placeholder für Item-Liste oder Item nachdem User-Auswahl getroffen wurde",
       ],
@@ -133,89 +138,6 @@ export default {
     },
     ButtonNext() {
       return "Next";
-    },
-    sendData() {
-      const data = {
-        email: this.email,
-        selectedItem: this.selectedItem,
-        selectedColor: this.selectedColor,
-        selectedMaterial: this.selectedMaterial,
-        dateTime: this.dateTime,
-        location: this.location,
-        description: this.description,
-        picture: this.picture,
-      };
-      this.email = "";
-      this.selectedItem = "";
-      this.selectedColor = "";
-      this.selectedMaterial = "";
-      this.dateTime = "";
-      this.location = "";
-      this.description = "";
-      this.picture = "";
-      let urlEntries = "http://localhost:31415/entries";
-      let urlFilters = "http://localhost:31415/filters";
-
-      const UIDataInputKEYS = {
-        itemId: "",
-        materialId: "",
-        colorId: "",
-      };
-
-      fetch(urlFilters, {
-        method: "GET",
-        body: JSON.stringify(),
-      })
-        .then((req) => req.json())
-        .then((result) => {
-          UIDataInputKEYS.itemId = getID(result.products, data, "selectedItem");
-          UIDataInputKEYS.materialId = getID(
-            result.materials,
-            data,
-            "selectedMaterial"
-          );
-          UIDataInputKEYS.colorId = getID(result.colors, data, "selectedColor");
-          checkMatch(UIDataInputKEYS);
-        });
-
-      function getID(apiArr, UIData, UIDataKey) {
-        let result = "";
-        apiArr.forEach((element) => {
-          if (element.name === UIData[UIDataKey]) {
-            result = element.id;
-          }
-        });
-        return result;
-      }
-      function checkMatch(UserInputKeysOBJ) {
-        fetch(urlEntries, {
-          method: "GET",
-          body: JSON.stringify(),
-        })
-          .then((req) => req.json())
-          .then((result) => {
-            const matches = [];
-            result.forEach((element) => {
-              if (
-                element.materialId === UserInputKeysOBJ.materialId &&
-                element.colorId === UserInputKeysOBJ.colorId &&
-                element.productId === UserInputKeysOBJ.itemId
-              ) {
-                matches.push(element);
-              }
-            });
-
-            if (matches.length >= 1) {
-              alert(
-                "Herzlichen Glückwunsch. Wir haben potentielle Treffer für Dich"
-              );
-            } else {
-              alert(
-                "Danke für Deine Eingaben. Leider haben wir keine Treffer gefunden. Wir werden Dich benachrichtigen, sobald es einen Match geben sollte"
-              );
-            }
-          });
-      }
     },
   },
 };
