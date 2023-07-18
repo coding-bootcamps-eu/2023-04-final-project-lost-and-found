@@ -4,65 +4,59 @@
   </header>
 
   <main>
-    <!--      ITEM      -->
-    <p>What did you lose?</p>
-    <select class="optionsItem">
-      <option
-        v-for="option in optionsItem"
-        :value="option.value"
-        :key="option.value"
-      >
+    <!-- ITEM -->
+    <p>What did you find?</p>
+    <select v-model="selectedItem" class="optionsItem">
+      <option v-for="option in optionsItem" :key="option.value">
         {{ option.label }}
       </option>
     </select>
-    <!--      COLOR      -->
-    <p>What is the basic color?</p>
-    <select class="optionsColor">
-      <option
-        v-for="option in optionsColor"
-        :value="option.value"
-        :key="option.value"
-      >
-        {{ option.label }}
-      </option>
-    </select>
-    <!--      MATERIAL      -->
-    <p>What is the basic material?</p>
-    <select class="optionsMaterial">
-      <option
-        v-for="option in optionsMaterial"
-        :value="option.value"
-        :key="option.value"
-      >
-        {{ option.label }}
-      </option>
-    </select>
-    <!--      EMAIL      -->
-    <p>Please insert your email:</p>
-    <input type="email" placeholder="Enter your email address" />
 
+    <!-- COLOR -->
+    <p>What is the basic color?</p>
+    <select v-model="selectedColor" class="optionsColor">
+      <option v-for="option in optionsColor" :key="option.value">
+        {{ option.label }}
+      </option>
+    </select>
+
+    <!-- MATERIAL -->
+    <p>What is the basic material?</p>
+    <select v-model="selectedMaterial" class="optionsMaterial">
+      <option v-for="option in optionsMaterial" :key="option.value">
+        {{ option.label }}
+      </option>
+    </select>
+
+    <!-- EMAIL -->
+    <p>Please insert your email:</p>
+    <input
+      type="email"
+      :placeholder="TextInputPlaceholder('Email')"
+      v-model="email"
+    />
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <vue-date-picker></vue-date-picker>
-    <!--      LOCATION      -->
-    <p>Where did you lose it?</p>
-    <input type="text" :placeholder="TextInputPlaceholder('Location')" />
 
-    <!--      DESCRIPTION      -->
-    <p>Describe it in your own words: (optional)</p>
+    <!-- LOCATION -->
+    <p>Where did you lose it?</p>
     <input
-<<<<<<< HEAD
-      class="description"
-=======
-      class="describeText"
->>>>>>> main
       type="text"
-      :placeholder="TextInputPlaceholder('Text')"
+      :placeholder="TextInputPlaceholder('Location')"
+      v-model="location"
     />
 
-    <!--      PICTURE UPLOAD      -->
+    <!-- DESCRIPTION -->
+    <p>Describe it in your own words: (optional)</p>
+    <input
+      type="text"
+      :placeholder="TextInputPlaceholder('Text')"
+      v-model="description"
+    />
+
+    <!-- PICTURE UPLOAD -->
     <p>Picture upload (optional)</p>
-<<<<<<< HEAD
     <input
       type="text"
       :placeholder="TextInputPlaceholder('Text')"
@@ -70,12 +64,7 @@
     />
     <button>upload</button>
     <br />
-    <button class="submit" @click="sendData()">SUBMIT</button>
-=======
-    <input type="text" :placeholder="TextInputPlaceholder('Text')" /><button>
-      {{ ButtonUpload() }}
-    </button>
->>>>>>> main
+    <button @click="sendData()">SUBMIT</button>
   </main>
 
   <footer>
@@ -86,41 +75,56 @@
 </template>
 
 <script>
+import router from "../router/index";
 import VueDatePicker from "@/components/VueDatePicker.vue";
+import { MatchesStore } from "@/stores/matchesStore";
+
 export default {
+  setup() {
+    const matchesStore = MatchesStore();
+    console.log(matchesStore);
+    return {
+      matchesStore,
+    };
+  },
   components: { VueDatePicker },
   name: "DefaultComponent",
   data() {
     return {
+      email: null,
+      selectedItem: null,
+      selectedColor: null,
+      selectedMaterial: null,
+      dateTime: null,
+      location: null,
+      description: null,
+      picture: null,
       optionsItem: [
-        { value: "product", label: "Wallet" },
-        { value: "product", label: "Bag" },
-        { value: "product", label: "Phone" },
-        { value: "product", label: "Watch" },
-        { value: "product", label: "Key" },
-        { value: "product", label: "Clothing" },
+        { label: "Wallet" },
+        { label: "Bag" },
+        { label: "Phone" },
+        { label: "Watch" },
+        { label: "Key" },
+        { label: "Clothing" },
       ],
-
       optionsColor: [
-        { value: "color", label: "Black" },
-        { value: "color", label: "White" },
-        { value: "color", label: "Brown" },
-        { value: "color", label: "Red" },
-        { value: "color", label: "Green" },
-        { value: "color", label: "Blue" },
-        { value: "color", label: "Yellow" },
-        { value: "color", label: "Silver" },
-        { value: "color", label: "Gold" },
+        { label: "Black" },
+        { label: "White" },
+        { label: "Brown" },
+        { label: "Red" },
+        { label: "Green" },
+        { label: "Blue" },
+        { label: "Yellow" },
+        { label: "Silver" },
+        { label: "Gold" },
       ],
-
       optionsMaterial: [
-        { value: "material", label: "Kind of Leather" },
-        { value: "material", label: "Kind of Plastic" },
-        { value: "material", label: "Kind of Metal" },
-        { value: "material", label: "Kind of Wood" },
-        { value: "material", label: "Kind of textiles" },
+        { label: "All kinds of leather" },
+        { label: "All kinds of plastic" },
+        { label: "All kinds of metal" },
+        { label: "All kinds of wood" },
+        { label: "All kinds textiles" },
       ],
-
       listItems: [
         "Placeholder für Item-Liste oder Item nachdem User-Auswahl getroffen wurde",
       ],
@@ -139,6 +143,89 @@ export default {
     ButtonNext() {
       return "Next";
     },
+    sendData() {
+      const matchesStore = this.matchesStore;
+      const data = {
+        email: this.email,
+        selectedItem: this.selectedItem,
+        selectedColor: this.selectedColor,
+        selectedMaterial: this.selectedMaterial,
+        dateTime: this.dateTime,
+        location: this.location,
+        description: this.description,
+        picture: this.picture,
+      };
+      this.email = "";
+      this.selectedItem = "";
+      this.selectedColor = "";
+      this.selectedMaterial = "";
+      this.dateTime = "";
+      this.location = "";
+      this.description = "";
+      this.picture = "";
+      let urlEntries = "http://localhost:31415/entries";
+      let urlFilters = "http://localhost:31415/filters";
+
+      const UIDataInputKEYS = {
+        itemId: "",
+        materialId: "",
+        colorId: "",
+      };
+
+      fetch(urlFilters, {
+        method: "GET",
+        body: JSON.stringify(),
+      })
+        .then((req) => req.json())
+        .then((result) => {
+          UIDataInputKEYS.itemId = getID(result.products, data, "selectedItem");
+          UIDataInputKEYS.materialId = getID(
+            result.materials,
+            data,
+            "selectedMaterial"
+          );
+          UIDataInputKEYS.colorId = getID(result.colors, data, "selectedColor");
+          checkMatch(UIDataInputKEYS);
+        });
+
+      function getID(apiArr, UIData, UIDataKey) {
+        let result = "";
+        apiArr.forEach((element) => {
+          if (element.name === UIData[UIDataKey]) {
+            result = element.id;
+          }
+        });
+        return result;
+      }
+      function checkMatch(UserInputKeysOBJ) {
+        fetch(urlEntries, {
+          method: "GET",
+          body: JSON.stringify(),
+        })
+          .then((req) => req.json())
+          .then((result) => {
+            const matches = [];
+            result.forEach((element) => {
+              if (
+                element.materialId === UserInputKeysOBJ.materialId &&
+                element.colorId === UserInputKeysOBJ.colorId &&
+                element.productId === UserInputKeysOBJ.itemId
+              ) {
+                matches.push(element);
+              }
+            });
+
+            if (matches.length >= 1) {
+              alert(
+                "Herzlichen Glückwunsch. Wir haben potentielle Treffer für Dich"
+              );
+              matchesStore.setData(matches);
+            } else {
+              router.push("/lost/lostnonmatchpage");
+            }
+          });
+      }
+    },
   },
 };
 </script>
@@ -146,19 +233,10 @@ export default {
 <style scoped>
 /* SCOPED ? */
 header {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  background-color: #a6b8fc;
+  background-color: #f5f1f1;
+  padding: 20px;
 }
 
-.lost {
-  color: #f5f1f1;
-  padding-top: 50px;
-}
-h1 {
-  font-size: 50px;
-}
 main {
   padding: 20px;
   background-color: #a6b8fc;
@@ -183,7 +261,7 @@ input {
   padding: 10px;
   width: 278px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
 }
 
 select {
@@ -191,7 +269,7 @@ select {
   padding: 10px;
   width: 300px;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
 }
 
 p {
@@ -200,11 +278,7 @@ p {
   margin-bottom: 0;
   font-size: 20px;
 }
-.submit {
-  margin: 50px;
-  font-size: larger;
-}
-.description {
+.describeText {
   height: 100px;
 }
 </style>
