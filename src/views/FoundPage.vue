@@ -1,8 +1,6 @@
 <template>
   <header>
-    <div class="logo">
-      <img src="../assets/foundLogo.png" alt="Logo Found" />
-    </div>
+    <h1 class="found">FOUND</h1>
   </header>
 
   <main>
@@ -30,6 +28,22 @@
       </option>
     </select>
 
+<<<<<<< HEAD
+    <!--      EMAIL      -->
+    <p>Please insert your email:</p>
+    <form action="http://localhost:31415/api/send-email" method="post">
+      <input
+        type="email"
+        name="toEmail"
+        placeholder="E-Mail-Adresse"
+        required
+      />
+      <!-- Button nur zu testzwecken muss bei fertigstellung gelöscht werden 
+      bzw. mit click event von submit am ende der abfrage verbunden werden -->
+      <button type="submit">sent</button>
+    </form>
+
+=======
     <!-- EMAIL -->
     <p>Please insert your email:</p>
     <input
@@ -37,6 +51,7 @@
       :placeholder="TextInputPlaceholder('Email')"
       v-model="email"
     />
+>>>>>>> main
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <vue-date-picker></vue-date-picker>
@@ -52,6 +67,7 @@
     <!-- DESCRIPTION -->
     <p>Describe it in your own words: (optional)</p>
     <input
+      class="description"
       type="text"
       :placeholder="TextInputPlaceholder('Text')"
       v-model="description"
@@ -66,8 +82,7 @@
     />
     <button>upload</button>
     <br />
-    <button @click="getData()">SUBMIT</button>
-    <router-view></router-view>
+    <button class="submit" @click="getData()">SUBMIT</button>
   </main>
 
   <footer>
@@ -78,7 +93,6 @@
 </template>
 
 <script>
-import router from "../router/index";
 import VueDatePicker from "@/components/VueDatePicker.vue";
 export default {
   name: "DefaultComponent",
@@ -204,8 +218,7 @@ export default {
           .then((req) => req.json(uploadOBJ))
           .then((result) => {
             console.log(result);
-            //alert("Vielen Dank für Ihre Eingabe!");
-            router.push("/found/foundmessagepage");
+            alert("Vielen Dank für Ihre Eingabe!");
           });
       }
 
@@ -226,16 +239,21 @@ export default {
 <style scoped>
 /* SCOPED ? */
 header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   background-color: #f5f1f1;
-  padding: 20px;
+}
+
+.found {
+  color: #a6b8fc;
+  padding-top: 50px;
+}
+h1 {
+  font-size: 50px;
 }
 
 main {
-  background-color: #f5f1f1;
-  padding: 20px;
-}
-
-footer {
   background-color: #f5f1f1;
   padding: 20px;
 }
@@ -254,7 +272,7 @@ input {
   padding: 10px;
   width: 278px;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 select {
@@ -262,7 +280,7 @@ select {
   padding: 10px;
   width: 300px;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 p {
@@ -271,8 +289,13 @@ p {
   margin-bottom: 0;
   font-size: 20px;
 }
-.describeText {
+.description {
   height: 100px;
+}
+
+.submit {
+  margin: 50px;
+  font-size: larger;
 }
 
 footer {

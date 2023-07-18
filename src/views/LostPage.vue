@@ -1,8 +1,6 @@
 <template>
   <header>
-    <div class="logo">
-      <img src="../assets/lostLogo.png" alt="Logo Lost" />
-    </div>
+    <h1 class="lost">LOST</h1>
   </header>
 
   <main>
