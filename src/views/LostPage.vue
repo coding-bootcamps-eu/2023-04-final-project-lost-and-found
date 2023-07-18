@@ -29,7 +29,7 @@
     </select>
 
     <!--      EMAIL      -->
-    <form action="http://localhost:14142/api/send-email" method="post">
+    <form action="http://localhost:31415/send-email" method="post">
       <input
         type="email"
         name="toEmail"
