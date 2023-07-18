@@ -2,6 +2,7 @@
   <header>
     <div class="logo">
       <img src="../assets/lostLogo.png" alt="Logo Lost" />
+      <p>{{ this.matchesStore }}</p>
     </div>
   </header>
 
@@ -77,8 +78,18 @@
 </template>
 
 <script>
+import router from "../router/index";
 import VueDatePicker from "@/components/VueDatePicker.vue";
+import { MatchesStore } from "@/stores/matchesStore";
+
 export default {
+  setup() {
+    const matchesStore = MatchesStore();
+    console.log(matchesStore);
+    return {
+      matchesStore,
+    };
+  },
   components: { VueDatePicker },
   name: "DefaultComponent",
   data() {
@@ -136,6 +147,7 @@ export default {
       return "Next";
     },
     sendData() {
+      const matchesStore = this.matchesStore;
       const data = {
         email: this.email,
         selectedItem: this.selectedItem,
@@ -210,14 +222,17 @@ export default {
               alert(
                 "Herzlichen Glückwunsch. Wir haben potentielle Treffer für Dich"
               );
+              console.log(matches);
+              matchesStore.setData(matches);
+              console.log(matchesStore.dataset);
+              // router.push("/lost/lostmatchpage");
             } else {
-              alert(
-                "Danke für Deine Eingaben. Leider haben wir keine Treffer gefunden. Wir werden Dich benachrichtigen, sobald es einen Match geben sollte"
-              );
+              router.push("/lost/lostnonmatchpage");
             }
           });
       }
     },
+    //--------------
   },
 };
 </script>

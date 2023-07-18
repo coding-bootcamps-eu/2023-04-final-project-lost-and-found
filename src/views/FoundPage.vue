@@ -73,6 +73,7 @@
     <button>upload</button>
     <br />
     <button @click="getData()">SUBMIT</button>
+    <router-view></router-view>
   </main>
 
   <footer>
@@ -83,6 +84,7 @@
 </template>
 
 <script>
+import router from "../router/index";
 import VueDatePicker from "@/components/VueDatePicker.vue";
 export default {
   name: "DefaultComponent",
@@ -208,7 +210,8 @@ export default {
           .then((req) => req.json(uploadOBJ))
           .then((result) => {
             console.log(result);
-            alert("Vielen Dank für Ihre Eingabe!");
+            //alert("Vielen Dank für Ihre Eingabe!");
+            router.push("/found/foundmessagepage");
           });
       }
 
