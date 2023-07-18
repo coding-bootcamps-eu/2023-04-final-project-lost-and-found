@@ -28,13 +28,16 @@
       </option>
     </select>
 
-    <!-- EMAIL -->
-    <p>Please insert your email:</p>
-    <input
-      type="email"
-      :placeholder="TextInputPlaceholder('Email')"
-      v-model="email"
-    />
+    <!--      EMAIL      -->
+    <form action="http://localhost:31415/api/send-email" method="post">
+      <input
+        type="email"
+        name="toEmail"
+        placeholder="Deine E-Mail-Adresse"
+        required
+      />
+    </form>
+
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <vue-date-picker></vue-date-picker>
