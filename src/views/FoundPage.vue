@@ -28,7 +28,6 @@
       </option>
     </select>
 
-<<<<<<< HEAD
     <!--      EMAIL      -->
     <p>Please insert your email:</p>
     <form action="http://localhost:31415/api/send-email" method="post">
@@ -43,7 +42,6 @@
       <button type="submit">sent</button>
     </form>
 
-=======
     <!-- EMAIL -->
     <p>Please insert your email:</p>
     <input
@@ -51,7 +49,7 @@
       :placeholder="TextInputPlaceholder('Email')"
       v-model="email"
     />
->>>>>>> main
+
     <!--      DATE/TIME      -->
     <p>When did you lose it?</p>
     <vue-date-picker></vue-date-picker>
