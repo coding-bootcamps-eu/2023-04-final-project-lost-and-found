@@ -2,7 +2,6 @@
   <header>
     <div class="logo">
       <img src="../assets/lostLogo.png" alt="Logo Lost" />
-      <p>{{ this.matchesStore }}</p>
     </div>
   </header>
 
@@ -222,17 +221,13 @@ export default {
               alert(
                 "Herzlichen Glückwunsch. Wir haben potentielle Treffer für Dich"
               );
-              console.log(matches);
               matchesStore.setData(matches);
-              console.log(matchesStore.dataset);
-              // router.push("/lost/lostmatchpage");
             } else {
               router.push("/lost/lostnonmatchpage");
             }
           });
       }
     },
-    //--------------
   },
 };
 </script>
