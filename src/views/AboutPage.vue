@@ -1,43 +1,52 @@
 <template>
+  <header>
+    <h1>About us</h1>
+  </header>
   <main>
     <div class="about">
-      <h1>There is always a beginning</h1>
-      <a
-        class="codingLogo"
-        target="_blank"
-        href="https://www.coding-bootcamps.eu/"
-      >
-        <img
-          src="../../src/assets/iconCBE.png"
-          alt="Coding Bootcamps Europe Icon"
-      /></a>
       <h2>
-        "We met each other at Coding Bootcamps Europe and we are happy to share
-        our first project with you."
+        We met in April 2023 during further training at Coding Bootcamps Europe.
+        <br />The Lost & Found App is our final project which we worked out,
+        developed and created together.
       </h2>
-
-      <h2>We are 4 trainees...</h2>
       <ul>
         <li>
           <img src="../../src/assets/tine.png " alt="Profile Picture Tine" />
-          Tine
+          <p>Christine Maria Metz</p>
         </li>
 
         <li>
           <img src="../../src/assets/bea.png" alt="Profile Picture" />
-          Bea
+          <p>Bea Pitzschke</p>
         </li>
         <li>
           <img src="../../src/assets/onur.png" alt="Profile Picture" />
-          Onur
+          <p>Onur Yüksek</p>
         </li>
         <li>
           <img src="../../src/assets/stefan.png" alt="Profile Picture" />
-          Stefan
+          <p>Stefan Schulz</p>
         </li>
       </ul>
     </div>
   </main>
+
+  <aside>
+    <h3>
+      Would you also like to become a<br />
+      <strong>frontend developer</strong> ? <br />
+      Click the icon below and it will take you directly to the boot camp
+    </h3>
+    <a
+      class="codingLogo"
+      target="_blank"
+      href="https://www.coding-bootcamps.eu/"
+    >
+      <img
+        src="../../src/assets/iconCBE.png"
+        alt="Coding Bootcamps Europe Icon"
+    /></a>
+  </aside>
   <footer>
     <nav>
       <router-link to="/">Home</router-link>
@@ -46,6 +55,13 @@
 </template>
 
 <style scoped>
+header {
+  width: auto;
+  height: 100px;
+  background-color: #f5f1f1;
+  padding: 20px;
+}
+
 main {
   padding: 50px;
   max-width: 80%;
@@ -53,21 +69,29 @@ main {
 }
 
 footer {
-  width: 100%;
+  width: auto;
   height: 100px;
   background-color: #f5f1f1;
   padding: 20px;
 }
 
-h1 {
-  color: #a6b8fc;
-  padding-top: 30px;
-  padding-bottom: 100px;
+h2 {
+  padding-bottom: 30px;
 }
 
-h2 {
-  max-width: 500px;
-  margin: auto;
-  padding-bottom: 30px;
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+}
+
+ul li img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0px 0px 10px 0px #000000;
 }
 </style>
