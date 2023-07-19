@@ -6,13 +6,15 @@
     </header>
 
     <main>
-      <h2>
-        Thank you for your advertisment!
+      <div class="update">
+        <h2>
+          Thank you for your advertisment!
+          <br />
+          You will get an email asap.
+        </h2>
         <br />
-        You will get an email asap.
-      </h2>
-      <br />
-      <p>If you have another issue, start again with lost or found.</p>
+        <p>If you have another issue, start again with lost or found.</p>
+      </div>
       <div class="mainContent">
         <div class="boxLost">
           <h3>Did you lose something?</h3>
@@ -125,7 +127,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-bottom: 100px;
+  padding-bottom: 25px;
 }
 
 .lost {
@@ -141,10 +143,6 @@ main {
   padding-right: 50%;
 }
 
-h1 {
-  font-size: 50px;
-}
-
 a {
   text-decoration: none;
   color: #4c3d40;
@@ -152,6 +150,7 @@ a {
 }
 
 h1 {
+  font-size: 50px;
   color: #4c3d40;
   padding-top: 30px;
 }
