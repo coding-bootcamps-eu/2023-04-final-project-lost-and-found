@@ -46,17 +46,21 @@
 
     <footer>
       <div class="footerLinks">
-        <nav>
-          <router-link to="/about">About us</router-link>
-        </nav>
-        <nav>
-          <router-link to="/contact">Contact</router-link>
-        </nav>
-        <nav>
-          <router-link to="/imprint">Imprint</router-link>
-        </nav>
+        <div class="footerNavLeft">
+          <nav>
+            <router-link to="/about">About us</router-link>
+          </nav>
+          <nav class="footerNavLeft">
+            <router-link to="/contact">Contact</router-link>
+          </nav>
+        </div>
+        <div class="copyright">© 2023 Lost & Found</div>
+        <div class="footerNavRight">
+          <nav>
+            <router-link to="/imprint">Imprint</router-link>
+          </nav>
+        </div>
       </div>
-      <div><p class="copyright">© 2023 Lost & Found</p></div>
     </footer>
   </div>
 </template>
@@ -127,7 +131,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-bottom: 25px;
+  padding-bottom: 100px;
 }
 
 .lost {
@@ -187,27 +191,43 @@ button {
 
 .counter {
   position: fixed;
-  bottom: 150px;
+  bottom: 80px;
   left: 10px;
   background-color: #b1fd8b;
   padding: 10px;
 }
 
 footer {
-  width: 100%;
-  height: 130px;
+  width: auto;
+  /* height: 130px; */
   background-color: #f5f1f1;
   padding: 20px;
+  font-size: 0.75rem;
 }
-
 .footerLinks {
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* height: 100%; */
+}
+
+.footerNavLeft {
+  display: flex;
+  align-items: flex-end;
+}
+
+.footerNavRight {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 .copyright {
-  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: rgb(155, 156, 158);
   font-size: smaller;
+  padding-right: 50px;
 }
 </style>
