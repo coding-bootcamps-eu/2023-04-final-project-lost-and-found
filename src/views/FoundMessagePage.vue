@@ -52,6 +52,8 @@ main {
   text-align: center;
   background-color: #f5f1f1;
   padding: 20px;
+  padding-bottom: 150px;
+  padding-top: 150px;
 }
 
 h2 {
@@ -61,14 +63,12 @@ h2 {
 
 p {
   color: #a6b8fc;
-  padding-top: 30px;
   margin-bottom: 0;
   font-size: 20px;
-  padding-bottom: 50px;
 }
 
 footer {
-  height: 30px;
+  height: 15px;
   background-color: white;
   padding: 20px;
   display: flex;
