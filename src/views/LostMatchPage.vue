@@ -12,7 +12,7 @@
       it and get connected with the founder)
     </p>
     <ul>
-      <li v-for="item in listItems" :key="item">
+      <li v-for="item in matchesStore.matches" :key="item">
         {{ item }}
       </li>
     </ul>
@@ -29,44 +29,21 @@
 </template>
 
 <script>
+import { useMatchesStore } from "@/stores/matchesStore";
 export default {
-  name: "DefaultComponent",
-  data() {
+  // ...
+  setup() {
+    const matchesStore = useMatchesStore();
+
     return {
-      optionsItem: [
-        { value: "product", label: "Wallet" },
-        { value: "product", label: "Bag" },
-        { value: "product", label: "Phone" },
-        { value: "product", label: "Watch" },
-        { value: "product", label: "Key" },
-        { value: "product", label: "Clothing" },
-      ],
-
-      optionsColor: [
-        { value: "color", label: "Black" },
-        { value: "color", label: "White" },
-        { value: "color", label: "Brown" },
-        { value: "color", label: "Red" },
-        { value: "color", label: "Green" },
-        { value: "color", label: "Blue" },
-        { value: "color", label: "Yellow" },
-        { value: "color", label: "Silver" },
-        { value: "color", label: "Gold" },
-      ],
-
-      optionsMaterial: [
-        { value: "material", label: "Kind of Leather" },
-        { value: "material", label: "Kind of Plastic" },
-        { value: "material", label: "Kind of Metal" },
-        { value: "material", label: "Kind of Wood" },
-        { value: "material", label: "Kind of textiles" },
-      ],
-
-      listItems: [
-        "Placeholder für Item-Liste oder Item nachdem User-Auswahl getroffen wurde",
-      ],
+      matchesStore,
     };
   },
+  mounted() {
+    const itemsData = [this.matchesStore.matches];
+    this.matchesStore.setData(itemsData);
+  },
+  // ...
 };
 </script>
 
