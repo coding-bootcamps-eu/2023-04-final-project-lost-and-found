@@ -8,6 +8,7 @@ import LostnonMatchPage from "../views/LostnonMatchPage.vue";
 import AboutPage from "../views/AboutPage.vue";
 import ContactPage from "../views/ContactPage.vue";
 import ImprintPage from "../views/ImprintPage.vue";
+import UpdateLandingPage from "../views/UpdateLandingPage.vue";
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     path: "/found",
     name: "found",
     component: FoundPage,
+  },
+  {
+    path: "/updatelandingpage",
+    name: "updatelandingpage",
+    component: UpdateLandingPage,
   },
 ];
 
