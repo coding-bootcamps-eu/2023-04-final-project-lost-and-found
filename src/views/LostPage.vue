@@ -46,11 +46,12 @@
 
     <!-- LOCATION -->
     <p>Where did you lose it?</p>
-    <input
+    <open-layers-map></open-layers-map>
+    <!--<input
       type="text"
       :placeholder="TextInputPlaceholder('Location')"
       v-model="location"
-    />
+    />-->
 
     <!-- DESCRIPTION -->
     <p>Describe it in your own words: (optional)</p>
@@ -85,6 +86,7 @@ import router from "../router/index";
 import VueDatePicker from "@/components/VueDatePicker.vue";
 import { useMatchesStore } from "@/stores/matchesStore";
 import { uselostPersonStore } from "@/stores/lostPersonStore";
+import OpenLayersMap from "@/components/OpenLayersMap.vue";
 
 export default {
   setup() {
@@ -95,7 +97,7 @@ export default {
       lostPersonData,
     };
   },
-  components: { VueDatePicker },
+  components: { VueDatePicker, OpenLayersMap },
   name: "DefaultComponent",
   data() {
     return {
