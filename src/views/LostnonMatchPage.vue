@@ -1,18 +1,17 @@
 <template>
   <header>
-    <div class="logo">
-      <img src="../assets/lostLogo.png" alt="Logo Lost" />
-    </div>
+    <h1 class="lost">LOST</h1>
   </header>
 
   <main>
     <h2>Thank you for the advertisement!</h2>
     <p>
-      We are sorry, no MATCH yet. As soon as someone found your item, we will
-      let you know.
+      We are sorry, no MATCH yet.
+      <br />
+      As soon as someone found your item, we will let you know.
     </p>
   </main>
-  <footer>
+  <footer class="footerLinks">
     <nav>
       <router-link to="/LostPage">Back</router-link>
     </nav>
@@ -26,54 +25,39 @@
 <script></script>
 
 <style scoped>
-/* SCOPED ? */
 header {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
 }
 
 main {
   padding: 20px;
+  background-color: #a6b8fc;
 }
 
 footer {
-  background-color: #f2f2f2;
+  background-color: #f5f1f1;
   padding: 20px;
+  width: auto;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 h1 {
   color: #333;
 }
 
-h2 {
+h2,
+p {
   color: #555;
-}
-
-h3 {
-  color: #777;
-}
-
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
-}
-
-input,
-select {
-  margin: 10px 0;
-  padding: 10px;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
 }
 </style>
