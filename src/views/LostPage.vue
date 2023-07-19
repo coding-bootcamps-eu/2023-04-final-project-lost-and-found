@@ -82,13 +82,15 @@
 import router from "../router/index";
 import VueDatePicker from "@/components/VueDatePicker.vue";
 import { useMatchesStore } from "@/stores/matchesStore";
+import { uselostPersonStore } from "@/stores/lostPersonStore";
 
 export default {
   setup() {
     const matchesStore = useMatchesStore();
-    console.log(matchesStore);
+    const lostPersonData = uselostPersonStore();
     return {
       matchesStore,
+      lostPersonData,
     };
   },
   components: { VueDatePicker },
@@ -175,7 +177,7 @@ export default {
         materialId: "",
         colorId: "",
       };
-
+      this.lostPersonData.setData(data);
       fetch(urlFilters, {
         method: "GET",
         body: JSON.stringify(),
@@ -223,10 +225,8 @@ export default {
               // alert(
               //   "Herzlichen Glückwunsch. Wir haben potentielle Treffer für Dich"
               // );
-              console.log("KLAPPT DAS?");
               matchesStore.setData(matches);
-              console.log(matchesStore);
-              console.log(matches);
+              router.push("lost/lostmatchpage");
             } else {
               router.push("/lost/lostnonmatchpage");
             }
