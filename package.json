@@ -11,9 +11,13 @@
   "dependencies": {
     "@vuepic/vue-datepicker": "^5.4.0",
     "core-js": "^3.8.3",
+    "ol": "^7.4.0",
+    "ol-contextmenu": "^5.2.1",
+    "ol-ext": "^4.0.10",
     "pinia": "^2.1.4",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vue3-openlayers": "^1.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
