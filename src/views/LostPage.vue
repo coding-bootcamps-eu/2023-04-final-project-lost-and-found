@@ -152,6 +152,15 @@ export default {
       return "Next";
     },
     sendData() {
+      console.log(this.email);
+      // regex
+      if (!this.email) {
+        alert("please insert your email");
+        return;
+      } else {
+        // regex check
+      }
+
       const matchesStore = this.matchesStore;
       const data = {
         email: this.email,
@@ -215,6 +224,7 @@ export default {
             const matches = [];
             result.forEach((element) => {
               if (
+                element.email !== null &&
                 element.materialId === UserInputKeysOBJ.materialId &&
                 element.colorId === UserInputKeysOBJ.colorId &&
                 element.productId === UserInputKeysOBJ.itemId
