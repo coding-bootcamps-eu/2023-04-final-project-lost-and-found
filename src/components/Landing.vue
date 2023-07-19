@@ -100,6 +100,44 @@ main {
   padding: 20px;
 }
 
+footer {
+  width: auto;
+  /* height: 130px; */
+  background-color: #f5f1f1;
+  padding: 20px;
+  font-size: 0.75rem;
+}
+
+h1 {
+  font-size: 50px;
+  color: #4c3d40;
+  padding-top: 30px;
+}
+
+h2 {
+  color: #4c3d40;
+}
+
+h3 {
+  color: #4c3d40;
+  padding-bottom: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #4c3d40;
+  margin: 0 10px;
+}
+
+button {
+  font-size: 30px;
+  padding: 10px 20px;
+  margin: 50px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
 .mainContent {
   display: flex;
   justify-content: center;
@@ -139,36 +177,6 @@ main {
   padding-right: 50%;
 }
 
-a {
-  text-decoration: none;
-  color: #4c3d40;
-  margin: 0 10px;
-}
-
-h1 {
-  font-size: 50px;
-  color: #4c3d40;
-  padding-top: 30px;
-}
-
-h2 {
-  color: #4c3d40;
-}
-
-h3 {
-  color: #4c3d40;
-  padding-bottom: 20px;
-}
-
-button {
-  font-size: 30px;
-  padding: 10px 20px;
-  margin: 50px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-}
-
 .btnFound {
   background-color: #f5f1f1;
   color: #a6b8fc;
@@ -187,14 +195,6 @@ button {
   left: 10px;
   background-color: #b1fd8b;
   padding: 10px;
-}
-
-footer {
-  width: auto;
-  /* height: 130px; */
-  background-color: #f5f1f1;
-  padding: 20px;
-  font-size: 0.75rem;
 }
 
 .footerLinks {
