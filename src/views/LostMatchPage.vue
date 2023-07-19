@@ -19,7 +19,7 @@
   </main>
   <footer>
     <nav>
-      <router-link to="/LostPage">Back</router-link>
+      <router-link to="/lost">Back</router-link>
     </nav>
     <br />
     <nav>
