@@ -5,7 +5,7 @@
 
   <main>
     <!-- ITEM -->
-    <p>What did you find?</p>
+    <p>What did you lose?</p>
     <select v-model="selectedItem" class="optionsItem">
       <option v-for="option in optionsItem" :key="option.value">
         {{ option.label }}
@@ -29,6 +29,7 @@
     </select>
 
     <!--      EMAIL      -->
+    <p>Please insert your email:</p>
     <form action="http://localhost:31415/send-email" method="post">
       <input
         v-model="email"
@@ -54,6 +55,7 @@
     <!-- DESCRIPTION -->
     <p>Describe it in your own words: (optional)</p>
     <input
+      class="description"
       type="text"
       :placeholder="TextInputPlaceholder('Text')"
       v-model="description"
@@ -240,10 +242,18 @@ export default {
 <style scoped>
 /* SCOPED ? */
 header {
-  background-color: #f5f1f1;
+  background-color: #a6b8fc;
   padding: 20px;
 }
 
+h1 {
+  font-size: 50px;
+}
+
+.lost {
+  color: #f5f1f1;
+  padding-top: 50px;
+}
 main {
   padding: 20px;
   background-color: #a6b8fc;
@@ -268,7 +278,7 @@ input {
   padding: 10px;
   width: 278px;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 select {
@@ -276,7 +286,7 @@ select {
   padding: 10px;
   width: 300px;
   border: none;
-  border-radius: 25px;
+  border-radius: 5px;
 }
 
 p {
@@ -285,7 +295,12 @@ p {
   margin-bottom: 0;
   font-size: 20px;
 }
-.describeText {
+.description {
   height: 100px;
+}
+
+.submit {
+  margin: 50px;
+  font-size: larger;
 }
 </style>
