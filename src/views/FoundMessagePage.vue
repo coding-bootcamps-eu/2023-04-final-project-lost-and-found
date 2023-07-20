@@ -9,18 +9,18 @@
       <br />
       you will make someone very happy again!
     </h2>
-    <p>
+    <h3>
       As soon as someone is looking for his item, we will let you know via
       emailing you.
-    </p>
+    </h3>
   </main>
   <footer>
     <nav>
-      <router-link to="/found" class="backLink">Back</router-link>
+      <router-link to="/found">Back</router-link>
     </nav>
     <br />
     <nav>
-      <router-link to="/" class="homeLink">Home</router-link>
+      <router-link to="/">Home</router-link>
     </nav>
   </footer>
 </template>
@@ -56,31 +56,29 @@ main {
   padding-top: 150px;
 }
 
-h2 {
-  padding-bottom: 50px;
-  color: #4c3d40;
+h2,
+h3 {
+  color: #a6b8fc;
 }
 
-p {
-  color: #a6b8fc;
+h2 {
+  padding-bottom: 50px;
+}
+
+h3 {
   margin-bottom: 0;
+  padding-bottom: 50px;
   font-size: 20px;
 }
 
 footer {
-  height: 15px;
-  background-color: white;
-  padding: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
-
-.backLink {
-  color: #4c3d40;
-}
-
-.homeLink {
-  color: #4c3d40;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
 }
 </style>
