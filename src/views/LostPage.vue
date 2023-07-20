@@ -46,11 +46,12 @@
 
     <!-- LOCATION -->
     <p>Where did you lose it?</p>
-    <input
+    <open-layers-map></open-layers-map>
+    <!--<input
       type="text"
       :placeholder="TextInputPlaceholder('Location')"
       v-model="location"
-    />
+    />-->
 
     <!-- DESCRIPTION -->
     <p>Describe it in your own words: (optional)</p>
@@ -85,6 +86,7 @@ import router from "../router/index";
 import VueDatePicker from "@/components/VueDatePicker.vue";
 import { useMatchesStore } from "@/stores/matchesStore";
 import { uselostPersonStore } from "@/stores/lostPersonStore";
+import OpenLayersMap from "@/components/OpenLayersMap.vue";
 
 export default {
   setup() {
@@ -95,7 +97,7 @@ export default {
       lostPersonData,
     };
   },
-  components: { VueDatePicker },
+  components: { VueDatePicker, OpenLayersMap },
   name: "DefaultComponent",
   data() {
     return {
@@ -152,6 +154,23 @@ export default {
       return "Next";
     },
     sendData() {
+      console.log(this.email);
+      // regex
+      if (!this.email) {
+        alert("please insert your email");
+        return;
+      } else {
+        if (!isValidEmail(this.email)) {
+          alert("please enter a valid email address ");
+          return;
+        }
+      }
+      function isValidEmail(email) {
+        //const emailRegex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x7f])+)\])/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
       const matchesStore = this.matchesStore;
       const data = {
         email: this.email,
@@ -215,6 +234,7 @@ export default {
             const matches = [];
             result.forEach((element) => {
               if (
+                element.email !== null &&
                 element.materialId === UserInputKeysOBJ.materialId &&
                 element.colorId === UserInputKeysOBJ.colorId &&
                 element.productId === UserInputKeysOBJ.itemId

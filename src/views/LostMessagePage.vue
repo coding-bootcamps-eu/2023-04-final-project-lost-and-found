@@ -1,23 +1,23 @@
 <template>
   <header>
-    <div class="logo">
-      <img src="../assets/lostLogo.png" alt="Logo Lost" />
-    </div>
+    <h1 class="lost">LOST</h1>
   </header>
 
   <main class="text">
-    <h2>
-      Please check your mails, you will get an email from us with the email add
-      of the founder.
-    </h2>
+    <h2>Now you can sit back for a while.</h2>
+    <h3>
+      In the background we will send you and the founder an email with your
+      contact details. Once the email arrives, you can exchange information and
+      plan a handover.
+    </h3>
   </main>
 
   <footer>
     <nav>
-      <router-link to="/LostMatchPage">Back</router-link>
+      <router-link to="/lost/lostmatchpage">Back</router-link>
     </nav>
     <nav>
-      <router-link to="/">Home</router-link>
+      <router-link to="/updatelandingpage">Home</router-link>
     </nav>
   </footer>
 </template>
@@ -25,49 +25,38 @@
 <script></script>
 
 <style scoped>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.logo img {
-  width: 100%;
-  height: auto;
-}
-
-.mainContent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-footer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  flex-wrap: wrap;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #f2f2f2;
+header {
+  background-color: #a6b8fc;
   padding: 20px;
 }
 
 h1 {
-  color: #333;
+  font-size: 50px;
 }
 
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
+.lost {
+  color: #f5f1f1;
+  padding-top: 50px;
+}
+main {
+  padding: 20px;
+  background-color: #a6b8fc;
+}
+
+footer {
+  height: 15px;
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+h2 {
+  color: #b1fd8b;
+}
+
+h3 {
+  color: #f5f1f1;
 }
 </style>
