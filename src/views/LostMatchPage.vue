@@ -9,14 +9,15 @@
       We already have some matches for you! Is one of these items yours? (click
       it and get connected with the founder)
     </p>
-    <template v-if="matchesStore.matches[0].length > 1">
+    <template v-if="matchesStore.matches[0].length > 0">
       <ul>
         <li v-for="item in matchesStore.matches[0]" :key="item.id">
           <!-- Use router-link to wrap the list item and specify the target route -->
           <!-- params: { id: item.id } -->
-          <router-link to="/lostmatchpage/lostmessagepage">
-            {{ item.productId }}
-          </router-link>
+          foobar
+          <a href="#" @click.prevent="appMail">
+            {{ item }}
+          </a>
         </li>
       </ul>
     </template>
@@ -34,78 +35,64 @@
 
 <script>
 import { useMatchesStore } from "@/stores/matchesStore";
+import { uselostPersonStore } from "@/stores/lostPersonStore";
 export default {
   // ...
   setup() {
     const matchesStore = useMatchesStore();
+    const lostPersonStore = uselostPersonStore();
 
     return {
       matchesStore,
+      lostPersonStore,
     };
   },
   mounted() {
     const itemsData = [this.matchesStore.matches];
     this.matchesStore.setData(itemsData);
   },
+  methods: {
+    sendMail(founderEmail, emailSubject, emailContent) {
+      const mailOptions = {
+        toEmail: founderEmail, // Empfänger
+        subject: emailSubject, // Betreff
+        msg: emailContent, // Inhalt
+      };
 
-  appMail() {
-    alert("eintrag liste kommt!");
-    const founderEmail = this.matchesStore.matches[0].email;
-    const emailSubject = "You got a Match!";
-    const emailContent = `Hello there, here is the email address of the founder of your item: ${founderEmail}. Get in touch with them and take your item back.
-        If you also want to make the finder happy, bring them a chocolate, ice cream, or a beer as a small present ;)
-        TODO: Please confirm the MATCH for us and click the link below as soon as you get your item. So we know everything is fine, and you are both happy!`;
-    const mailOptions = {
-      from: "loanfo.app@gmail.com", // Absender
-      to: founderEmail, // Empfänger
-      subject: emailSubject, // Betreff
-      text: emailContent, // Inhalt
-    };
+      return fetch(
+        "https://23-april.lost-and-found.api.cbe.uber.space/send-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(mailOptions),
+        }
+      )
+        .then((response) => response.json()) // Daten als JSON-Datei speichern
+        .then((data) => {
+          console.log(data);
+        });
+    },
 
-    fetch("https://23-april.lost-and-found.api.cbe.uber.space/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ mailOptions }),
-    })
-      .then((response) => response.json()) // Daten als JSON-Datei speichern
-      .then((data) => {
+    appMail() {
+      const founderEmail = this.matchesStore.matches[0][0].email;
+      const looserEmail = this.lostPersonStore.data.email;
+      const emailSubject = "You got a Match!";
+      const looserEmailSubject = "You got a Match!";
+      const emailContent = `Hello, here is the email address of the person who lost his item: ${looserEmail}. Get in touch with him/her and give it back. TODO: Please confirm the MATCH for us and click the link below, as soon as you got your item. So we know everything is fine and you are both happy!`;
+      const looserEmailContent = `Hello, here is the email address of the founder of your item: ${founderEmail}. Get in touch with him/her and take your item back. If you also want to make the finder happy, bring them a chocolate, ice cream, or a beer as a small present ;)
+      TODO: Please confirm the MATCH for us and click the link below as soon as you get your item. So we know everything is fine, and you are both happy!`;
+
+      const sendMailFetches = [
+        this.sendMail(founderEmail, emailSubject, emailContent),
+        this.sendMail(looserEmail, looserEmailSubject, looserEmailContent),
+      ];
+      Promise.all(sendMailFetches).then((data) => {
+        this.$router.push("/lostmatchpage/lostmessagepage");
         console.log(data);
       });
-
-    // Überprüfen, ob die email-Eigenschaft in data vorhanden ist
-    //       if (data.email){
-    //         const founderEmail = data.email; // E-Mail-Adresse des Founders speichern
-
-    //         transporter.sendMail(mailOptions, function (error, info) {
-    //           if (error) {
-    //             console.log(error);
-    //             res.json(
-    //               { message: "E-Mail wurde NICHT versendet." }
-    //             )
-    //           } else {
-    //             console.log("E-Mail gesendet: " + info.response);
-    //             res.json(
-    //               { message: "E-Mail wurde versendet." }
-    //             )
-    //           }
-    //         });
-
-    //       } else {
-    //         // Wenn die email-Eigenschaft nicht gefunden wurde, geben Sie eine Fehlermeldung zurück
-    //         console.error("email Not found in API response.");
-    //         res.json(
-    //           { message: "E-Mail wurde NICHT versendet." }
-    //         )
-    //       }
-
-    //     })
-    //     .catch((error) => {
-    //       console.error("Error fetching data from the API:", error);
-    //     });
-
-    // };
+    },
   },
 };
 </script>
