@@ -29,24 +29,23 @@
         </li>
       </ul>
     </div>
+    <div class="aside">
+      <h3>
+        Would you also like to become a<br />
+        <strong>frontend developer</strong> ? <br />
+        Click the icon below and it will take you directly to the boot camp
+      </h3>
+      <a
+        class="codingLogo"
+        target="_blank"
+        href="https://www.coding-bootcamps.eu/"
+      >
+        <img
+          src="../../src/assets/iconCBE.png"
+          alt="Coding Bootcamps Europe Icon"
+      /></a>
+    </div>
   </main>
-
-  <aside>
-    <h3>
-      Would you also like to become a<br />
-      <strong>frontend developer</strong> ? <br />
-      Click the icon below and it will take you directly to the boot camp
-    </h3>
-    <a
-      class="codingLogo"
-      target="_blank"
-      href="https://www.coding-bootcamps.eu/"
-    >
-      <img
-        src="../../src/assets/iconCBE.png"
-        alt="Coding Bootcamps Europe Icon"
-    /></a>
-  </aside>
   <footer>
     <nav>
       <router-link to="/">Home</router-link>
@@ -68,11 +67,21 @@ main {
   margin: auto;
 }
 
+.aside {
+  padding-top: 50px;
+}
+
 footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: auto;
-  height: 100px;
+  margin: 0;
+  /* height: 130px; */
   background-color: #f5f1f1;
-  padding: 20px;
+  /* padding: 10px; */
+  font-size: 0.75rem;
+  position: inherit;
 }
 
 h2 {
