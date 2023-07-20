@@ -16,7 +16,7 @@
   </main>
   <footer>
     <nav>
-      <router-link to="/FoundPage" class="backLink">Back</router-link>
+      <router-link to="/found" class="backLink">Back</router-link>
     </nav>
     <br />
     <nav>
