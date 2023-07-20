@@ -17,7 +17,7 @@
   </body>
   <footer class="footerLinks">
     <nav>
-      <router-link to="/lostpage">Back</router-link>
+      <router-link to="/lost">Back</router-link>
     </nav>
     <br />
     <nav>
