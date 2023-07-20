@@ -131,7 +131,7 @@ footer {
 }
 
 h1 {
-  color: #a6b8fc;
+  color: #4c3d40;
   padding-top: 30px;
   padding-bottom: 30px;
 }
