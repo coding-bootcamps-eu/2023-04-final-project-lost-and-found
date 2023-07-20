@@ -10,12 +10,14 @@
       it and get connected with the founder)
     </p>
     <template v-if="matchesStore.matches[0].length > 1">
-      <ul
-        v-for="item in matchesStore.matches[0]"
-        :key="item"
-        class="itemListStyle"
-      >
-        <li>xxx {{ item?.email }}</li>
+      <ul>
+        <li v-for="item in matchesStore.matches[0]" :key="item.id">
+          <!-- Use router-link to wrap the list item and specify the target route -->
+          <!-- params: { id: item.id } -->
+          <router-link to="/lostmatchpage/lostmessagepage">
+            {{ item.productId }}
+          </router-link>
+        </li>
       </ul>
     </template>
   </main>
@@ -47,6 +49,7 @@ export default {
   },
 
   appMail() {
+    alert("eintrag liste kommt!");
     const founderEmail = this.matchesStore.matches[0].email;
     const emailSubject = "You got a Match!";
     const emailContent = `Hello there, here is the email address of the founder of your item: ${founderEmail}. Get in touch with them and take your item back.
@@ -108,7 +111,6 @@ export default {
 </script>
 
 <style scoped>
-/* SCOPED ? */
 header {
   background-color: #a6b8fc;
   padding: 20px;
