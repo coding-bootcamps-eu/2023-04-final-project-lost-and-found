@@ -190,8 +190,10 @@ export default {
       this.location = "";
       this.description = "";
       this.picture = "";
-      let urlEntries = "http://localhost:31415/entries";
-      let urlFilters = "http://localhost:31415/filters";
+      let urlEntries =
+        "https://23-april.lost-and-found.api.cbe.uber.space/entries";
+      let urlFilters =
+        "https://23-april.lost-and-found.api.cbe.uber.space/filters";
 
       const UIDataInputKEYS = {
         itemId: "",
