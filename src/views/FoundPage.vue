@@ -183,8 +183,12 @@ export default {
 
       console.log("Data:", data);
 
-      let url = "http://localhost:31415/filters";
-      fetch(url, {
+      let urlEntries =
+        "https://23-april.lost-and-found.api.cbe.uber.space/entries";
+      let urlFilters =
+        "https://23-april.lost-and-found.api.cbe.uber.space/filters";
+
+      fetch(urlFilters, {
         method: "GET",
         body: JSON.stringify(),
       })
@@ -215,7 +219,7 @@ export default {
           hasMatch: false,
         };
 
-        fetch("http://localhost:31415/entries", {
+        fetch(urlEntries, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
