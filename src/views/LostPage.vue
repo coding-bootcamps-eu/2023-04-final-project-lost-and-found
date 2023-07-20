@@ -160,7 +160,7 @@ export default {
         alert("please insert your email");
         return;
       } else {
-        if (isValidEmail(this.mail)) {
+        if (!isValidEmail(this.mail)) {
           alert("please enter a valid email address ");
           return;
         }
