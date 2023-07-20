@@ -68,8 +68,7 @@ export default {
     })
       .then((response) => response.json()) // Daten als JSON-Datei speichern
       .then((data) => {
-        // Daten aus der JSON-Datei holen
-        console.log(data); // Überprüfen Sie den Inhalt der data-Variable
+        console.log(data);
       });
 
     // Überprüfen, ob die email-Eigenschaft in data vorhanden ist
