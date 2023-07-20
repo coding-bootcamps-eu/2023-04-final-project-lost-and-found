@@ -1,6 +1,6 @@
 <template>
+  <header><h1>Impressum</h1></header>
   <main class="impressum">
-    <h1>Impressum</h1>
     <h2>Angaben gemäß § 5 TMG</h2>
     <p>[Abschlußprojekt]</p>
     <h2>Kontakt</h2>
@@ -117,6 +117,12 @@
 </template>
 
 <style scoped>
+header {
+  width: auto;
+  /* height: 100px; */
+  background-color: #f5f1f1;
+  padding: 20px;
+}
 main {
   padding: 20px;
   max-width: 80%;
