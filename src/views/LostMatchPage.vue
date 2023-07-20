@@ -1,8 +1,6 @@
 <template>
   <header>
-    <div class="logo">
-      <img src="../assets/lostLogo.png" alt="Logo Lost" />
-    </div>
+    <h1 class="lost">LOST</h1>
   </header>
 
   <main>
@@ -17,7 +15,8 @@
       </li>
     </ul>
   </main>
-  <footer>
+
+  <footer class="footerLinks">
     <nav>
       <router-link to="/LostPage">Back</router-link>
     </nav>
@@ -71,23 +70,40 @@ export default {
 </script>
 
 <style scoped>
-/* SCOPED ? */
 header {
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-main {
-  padding: 20px;
-}
-
-footer {
-  background-color: #f2f2f2;
+  background-color: #a6b8fc;
   padding: 20px;
 }
 
 h1 {
-  color: #333;
+  font-size: 50px;
+}
+
+.lost {
+  color: #f5f1f1;
+  padding-top: 50px;
+}
+
+main {
+  padding: 20px;
+  background-color: #a6b8fc;
+}
+
+footer {
+  background-color: #f5f1f1;
+  padding: 20px;
+  width: auto;
+  height: 100px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.footerLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 h2 {
@@ -107,18 +123,11 @@ button {
   cursor: pointer;
 }
 
-input,
-select {
-  margin: 10px 0;
-  padding: 10px;
-}
-
 ul {
-  list-style-type: none;
-  padding: 0;
+  background-color: #a6b8fc;
 }
 
 li {
-  margin-bottom: 10px;
+  border: 1px solid black;
 }
 </style>
