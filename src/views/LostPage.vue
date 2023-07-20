@@ -158,11 +158,11 @@ export default {
       // regex
       if (!this.email) {
         alert("please insert your email");
-        return;
+        // return;
       } else {
         if (!isValidEmail(this.mail)) {
           alert("please enter a valid email address ");
-          return;
+          // return;
         }
       }
       function isValidEmail(email) {

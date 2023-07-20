@@ -9,6 +9,7 @@ import AboutPage from "../views/AboutPage.vue";
 import ContactPage from "../views/ContactPage.vue";
 import ImprintPage from "../views/ImprintPage.vue";
 import UpdateLandingPage from "../views/UpdateLandingPage.vue";
+import LostMessagePage from "../views/LostMessagePage.vue";
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
     path: "/lost/lostmatchpage",
     name: "lostmatch",
     component: LostMatchPage,
+  },
+  {
+    path: "/lostmatchpage/lostmessagepage", // This allows you to pass the item id as a parameter
+    name: "lostmessagepage",
+    component: LostMessagePage,
   },
   {
     path: "/lost/lostnonmatchpage",
