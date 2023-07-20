@@ -14,8 +14,7 @@
         <li v-for="item in matchesStore.matches[0]" :key="item.id">
           <!-- Use router-link to wrap the list item and specify the target route -->
           <!-- params: { id: item.id } -->
-          foobar
-          <a href="#" @click.prevent="appMail">
+          <a href="#" @click.prevent="appMail(item)">
             {{ item }}
           </a>
         </li>
@@ -75,8 +74,8 @@ export default {
         });
     },
 
-    appMail() {
-      const founderEmail = this.matchesStore.matches[0][0].email;
+    appMail(input) {
+      const founderEmail = input.email;
       const looserEmail = this.lostPersonStore.data.email;
       const emailSubject = "You got a Match!";
       const looserEmailSubject = "You got a Match!";
