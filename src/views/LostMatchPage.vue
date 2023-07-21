@@ -1,21 +1,32 @@
 <template>
   <header>
-    <h1 class="lost">LOST</h1>
+    <h1 class="lost">MATCH</h1>
   </header>
 
   <main>
-    <h2>YES!</h2>
-    <p>
-      We already have some matches for you! Is one of these items yours? (click
-      it and get connected with the founder)
-    </p>
-    <template v-if="matchesStore.matches[0].length > 0">
+    <div class="heading">
+      <h2>
+        YES! We already have some matches for you! <br />Is one of these items
+        yours?
+      </h2>
+      <h3 class="heading">(click it and get connected with the founder)</h3>
+    </div>
+
+    <!-- <template v-if="matchesStore.matches[0].length > 0">
       <ul>
         <li v-for="item in matchesStore.matches[0]" :key="item.id">
-          <!-- Use router-link to wrap the list item and specify the target route -->
-          <!-- params: { id: item.id } -->
           <a href="#" @click.prevent="appMail(item)">
             {{ item }}
+          </a>
+        </li>
+      </ul>
+    </template> -->
+
+    <template v-if="matchesStore.matches.length > 0">
+      <ul>
+        <li v-for="match in matchesStore.matches" :key="match.id">
+          <a href="#" @click.prevent="appMail(match)">
+            {{ getMatchDetails(match) }}
           </a>
         </li>
       </ul>
@@ -35,11 +46,17 @@
 <script>
 import { useMatchesStore } from "@/stores/matchesStore";
 import { uselostPersonStore } from "@/stores/lostPersonStore";
+
 export default {
   // ...
   setup() {
     const matchesStore = useMatchesStore();
     const lostPersonStore = uselostPersonStore();
+
+    matchesStore.setListItems([
+      { id: 0, name: "Item 1" },
+      { id: 1, name: "Item 2" },
+    ]);
 
     return {
       matchesStore,
@@ -47,10 +64,42 @@ export default {
     };
   },
   mounted() {
-    const itemsData = [this.matchesStore.matches];
-    this.matchesStore.setData(itemsData);
+    // const itemsData = [this.matchesStore.matches];
+    // this.matchesStore.setData(itemsData);
   },
   methods: {
+    // Function to convert match data to a user-friendly string
+    getMatchDetails(match) {
+      const product = this.getProductById(match.productId);
+      const color = this.getColorById(match.colorId);
+      const material = this.getMaterialById(match.materialId);
+
+      return `${product} in ${color} (${material})`;
+    },
+    // Function to get product name by its ID
+    getProductById(productId) {
+      const product = this.matchesStore.listItems.find(
+        (item) => item.id === productId
+      );
+      return product ? product.name : "Unknown Product";
+    },
+
+    // Function to get color name by its ID
+    getColorById(colorId) {
+      const color = this.matchesStore.optionsColor.find(
+        (item) => item.id === colorId
+      );
+      return color ? color.label : "Unknown Color";
+    },
+
+    // Function to get material name by its ID
+    getMaterialById(materialId) {
+      const material = this.matchesStore.optionsMaterial.find(
+        (item) => item.id === materialId
+      );
+      return material ? material.label : "Unknown Material";
+    },
+
     sendMail(founderEmail, emailSubject, emailContent) {
       const mailOptions = {
         toEmail: founderEmail, // Empfänger
@@ -97,22 +146,46 @@ export default {
 </script>
 
 <style scoped>
-header {
+html {
+  font-family: "Roboto", sans-serif;
   background-color: #a6b8fc;
-  padding: 20px;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: #a6b8fc;
 }
 
 h1 {
   font-size: 50px;
+  color: #f5f1f1;
 }
 
+h2,
+h3 {
+  color: #f5f1f1;
+}
+
+.heading {
+  padding: 10px;
+}
 .lost {
   color: #f5f1f1;
-  padding-top: 50px;
+  padding-top: 25px;
 }
+
 main {
-  padding: 20px;
   background-color: #a6b8fc;
+  padding-top: 0;
+  padding-bottom: 75px;
+  padding-left: 25px;
+  padding-right: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 footer {
@@ -124,18 +197,6 @@ footer {
   justify-content: space-between;
 }
 
-h1 {
-  color: #333;
-}
-
-h2 {
-  color: #b1fd8b;
-}
-
-h3 {
-  color: #777;
-}
-
 button {
   background-color: #4caf50;
   color: white;
@@ -145,12 +206,6 @@ button {
   cursor: pointer;
 }
 
-input,
-select {
-  margin: 10px 0;
-  padding: 10px;
-}
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -158,8 +213,5 @@ ul {
 
 li {
   margin-bottom: 10px;
-}
-.itemListStyle {
-  background-color: black;
 }
 </style>
