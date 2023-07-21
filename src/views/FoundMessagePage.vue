@@ -5,13 +5,13 @@
 
   <main class="text">
     <h2>
-      Thank you for the advertisement,
+      Thank you for the advertisement
       <br />
       you will make someone very happy again!
     </h2>
     <h3>
       As soon as someone is looking for his item, we will let you know via
-      emailing you.
+      emailing you. Then you can exchange information and plan a handover.
     </h3>
   </main>
   <footer>
@@ -28,7 +28,6 @@
 <script></script>
 
 <style scoped>
-/* SCOPED ? */
 html {
   font-family: "Roboto", sans-serif;
 }
@@ -52,13 +51,17 @@ main {
   text-align: center;
   background-color: #f5f1f1;
   padding: 20px;
-  padding-bottom: 150px;
-  padding-top: 150px;
+  padding-bottom: 115px;
+  padding-top: 115px;
 }
 
 h2,
 h3 {
   color: #a6b8fc;
+  max-width: 600px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 h2 {
@@ -72,13 +75,11 @@ h3 {
 }
 
 footer {
+  height: 15px;
+  background-color: white;
+  padding: 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px;
-  background-color: white;
+  justify-content: space-between;
 }
 </style>

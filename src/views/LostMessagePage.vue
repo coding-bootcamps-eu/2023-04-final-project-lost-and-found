@@ -4,7 +4,9 @@
   </header>
 
   <main class="text">
-    <h2>Now you can sit back for a while.</h2>
+    <h2>
+      Thank you for the advertisement <br />now you can sit back for a while.
+    </h2>
     <h3>
       In the background we will send you and the founder an email with your
       contact details. Once the email arrives, you can exchange information and
@@ -25,22 +27,50 @@
 <script></script>
 
 <style scoped>
+html {
+  font-family: "Roboto", sans-serif;
+}
+
 header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   background-color: #a6b8fc;
-  padding: 20px;
+}
+
+.lost {
+  color: #f5f1f1;
 }
 
 h1 {
   font-size: 50px;
 }
 
-.lost {
-  color: #f5f1f1;
-  padding-top: 50px;
-}
 main {
-  padding: 20px;
+  text-align: center;
   background-color: #a6b8fc;
+  padding: 20px;
+  padding-bottom: 115px;
+  padding-top: 115px;
+}
+
+h2,
+h3 {
+  color: #f5f1f1;
+  max-width: 600px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+h2 {
+  padding-bottom: 50px;
+}
+
+h3 {
+  margin-bottom: 0;
+  padding-bottom: 50px;
+  font-size: 20px;
 }
 
 footer {
@@ -50,13 +80,5 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-h2 {
-  color: #b1fd8b;
-}
-
-h3 {
-  color: #f5f1f1;
 }
 </style>
