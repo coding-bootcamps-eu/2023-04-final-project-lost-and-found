@@ -56,7 +56,6 @@ main {
 
 h2,
 h3 {
-  color: #f5f1f1;
   max-width: 600px;
   position: relative;
   left: 50%;
@@ -65,6 +64,7 @@ h3 {
 
 h2 {
   padding-bottom: 50px;
+  color: #b1fd8b;
 }
 
 h3 {
