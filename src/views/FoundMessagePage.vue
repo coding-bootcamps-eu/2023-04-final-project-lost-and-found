@@ -5,22 +5,22 @@
 
   <main class="text">
     <h2>
-      Thank you for the advertisement,
+      Thank you for the advertisement
       <br />
       you will make someone very happy again!
     </h2>
-    <p>
+    <h3>
       As soon as someone is looking for his item, we will let you know via
-      emailing you.
-    </p>
+      emailing you. Then you can exchange information and plan a handover.
+    </h3>
   </main>
   <footer>
     <nav>
-      <router-link to="/found" class="backLink">Back</router-link>
+      <router-link to="/found">Back</router-link>
     </nav>
     <br />
     <nav>
-      <router-link to="/" class="homeLink">Home</router-link>
+      <router-link to="/">Home</router-link>
     </nav>
   </footer>
 </template>
@@ -28,7 +28,6 @@
 <script></script>
 
 <style scoped>
-/* SCOPED ? */
 html {
   font-family: "Roboto", sans-serif;
 }
@@ -52,8 +51,16 @@ main {
   text-align: center;
   background-color: #f5f1f1;
   padding: 20px;
-  padding-bottom: 150px;
-  padding-top: 150px;
+  padding-bottom: 115px;
+  padding-top: 115px;
+}
+
+h2,
+h3 {
+  max-width: 600px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 h2 {
@@ -61,10 +68,11 @@ h2 {
   color: #4c3d40;
 }
 
-p {
-  color: #a6b8fc;
+h3 {
   margin-bottom: 0;
+  padding-bottom: 50px;
   font-size: 20px;
+  color: #a6b8fc;
 }
 
 footer {
@@ -74,13 +82,5 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.backLink {
-  color: #4c3d40;
-}
-
-.homeLink {
-  color: #4c3d40;
 }
 </style>

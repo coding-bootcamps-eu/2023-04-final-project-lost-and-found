@@ -132,6 +132,8 @@ main {
   flex-direction: row;
   justify-content: center;
   padding-bottom: 100px;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .lost {
@@ -198,12 +200,17 @@ button {
 }
 
 footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: auto;
   /* height: 130px; */
   background-color: #f5f1f1;
-  padding: 20px;
+  padding: 10px;
   font-size: 0.75rem;
 }
+
 .footerLinks {
   display: flex;
   justify-content: space-between;

@@ -111,10 +111,16 @@ header {
 }
 
 footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
   width: auto;
-  height: 100px;
+  margin: 0;
+  /* height: 130px; */
   background-color: #f5f1f1;
-  padding: 20px;
+  /* padding: 10px; */
+  font-size: 0.75rem;
+  position: inherit;
 }
 
 main {
