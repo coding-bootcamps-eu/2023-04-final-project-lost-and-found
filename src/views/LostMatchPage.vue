@@ -80,7 +80,7 @@ export default {
       const color = this.getColorById(match.colorId);
       const material = this.getMaterialById(match.materialId);
 
-      return `${product} in ${color} (${material})`;
+      return `${product} ${color} ${material}`;
     },
     // Function to get product name by its ID
     getProductById(productId) {
