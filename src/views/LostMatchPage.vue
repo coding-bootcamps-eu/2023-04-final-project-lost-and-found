@@ -33,14 +33,23 @@
         <li v-for="match in matchesStore.matches" :key="match.id">
           <div class="matchList">
             <a href="#" @click.prevent="appMail(match)">
-              <p>Product:</p>
-              {{ match.product.name }}
-              <br />
-              <p>Color:</p>
-              {{ match.color.name }}
-              <br />
-              <p>Material:</p>
-              {{ match.material.name }}
+              <div class="date">
+                <img
+                  class="iconCalender"
+                  src="../../src/assets/iconCalender.png"
+                  alt=""
+                /><time datetime="2023-07-21">21. Juli 2023</time>
+              </div>
+              <div class="matchListRight">
+                <p>Product:</p>
+                {{ match.product.name }}
+                <br />
+                <p>Color:</p>
+                {{ match.color.name }}
+                <br />
+                <p>Material:</p>
+                {{ match.material.name }}
+              </div>
             </a>
           </div>
         </li>
@@ -235,21 +244,16 @@ li {
   display: inline-block;
   justify-content: space-between;
   align-items: flex-start;
-  width: 50%;
+  width: 40%;
   padding: 20px;
   margin-bottom: 10px;
-  border-radius: 10px;
-  border: 2px solid #4c3d40;
   text-decoration: none;
   text-align: left;
   font-weight: normal;
   font-style: oblique;
   color: #4c3d40;
   font-size: 1rem;
-  line-height: 1.75rem;
-  background-color: rgba(245, 241, 241, 0.1);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: rgb(245, 241, 241);
 }
 
 .matchList p {
@@ -257,13 +261,36 @@ li {
   display: inline-block;
   justify-content: space-between;
   align-items: flex-start;
-
   text-decoration: none;
-  text-align: left;
+  text-align: right;
   font-weight: normal;
   font-style: oblique;
   color: #4c3d40;
   font-size: 1rem;
-  line-height: 1.75rem;
+  line-height: 0.5rem;
+}
+
+.date {
+  font-size: 0.7rem;
+  font-style: normal;
+  color: #4c3d40;
+  text-align: left;
+}
+
+.iconCalender {
+  width: 15px;
+  height: auto;
+  padding-right: 5px;
+}
+
+.date img {
+  width: 15px;
+  height: auto;
+  padding: 0%;
+  padding-right: 10px;
+}
+
+.matchListRight {
+  text-align: right;
 }
 </style>
