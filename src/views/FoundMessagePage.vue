@@ -66,6 +66,7 @@ h3 {
 
 h2 {
   padding-bottom: 50px;
+  color: #4c3d40;
 }
 
 h3 {
