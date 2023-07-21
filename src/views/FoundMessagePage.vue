@@ -57,7 +57,6 @@ main {
 
 h2,
 h3 {
-  color: #a6b8fc;
   max-width: 600px;
   position: relative;
   left: 50%;
@@ -73,6 +72,7 @@ h3 {
   margin-bottom: 0;
   padding-bottom: 50px;
   font-size: 20px;
+  color: #a6b8fc;
 }
 
 footer {
