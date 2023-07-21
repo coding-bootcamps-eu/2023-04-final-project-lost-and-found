@@ -157,6 +157,11 @@ html {
   background-color: #a6b8fc;
 }
 
+.lost {
+  color: #f5f1f1;
+  padding-top: 25px;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -164,31 +169,19 @@ header {
   background-color: #a6b8fc;
 }
 
+img {
+  width: 500px;
+  height: auto;
+  padding: 0 70px;
+}
+
 h1 {
   font-size: 50px;
   color: #f5f1f1;
 }
 
-h2,
-h3 {
+h2 {
   color: #f5f1f1;
-  max-width: 35%;
-  margin-left: 100px;
-}
-
-.heading {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  line-height: 3rem;
-  /* padding-top: 50px; */
-  /* padding-bottom: 50px; */
-}
-
-.lost {
-  color: #f5f1f1;
-  padding-top: 25px;
 }
 
 main {
@@ -197,14 +190,20 @@ main {
   padding-bottom: 175px;
   padding-left: 25px;
   padding-right: 25px;
+}
+
+.heading {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  line-height: 3rem;
+  padding: 50px 0;
 }
 
 footer {
-  height: 15px;
+  height: 55px;
   background-color: white;
   padding: 20px;
   display: flex;
