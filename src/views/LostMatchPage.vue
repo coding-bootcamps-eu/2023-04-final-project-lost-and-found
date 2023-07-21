@@ -31,9 +31,18 @@
     <template v-if="matchesStore.matches.length > 0">
       <ul>
         <li v-for="match in matchesStore.matches" :key="match.id">
-          <a href="#" @click.prevent="appMail(match)">
-            {{ getMatchDetails(match) }}
-          </a>
+          <div class="matchList">
+            <a href="#" @click.prevent="appMail(match)">
+              <p>Product:</p>
+              {{ match.product.name }}
+              <br />
+              <p>Color:</p>
+              {{ match.color.name }}
+              <br />
+              <p>Material:</p>
+              {{ match.material.name }}
+            </a>
+          </div>
         </li>
       </ul>
     </template>
@@ -177,11 +186,11 @@ img {
 
 h1 {
   font-size: 50px;
-  color: #f5f1f1;
+  color: #4c3d40;
 }
 
 h2 {
-  color: #f5f1f1;
+  color: #4c3d40;
 }
 
 main {
@@ -211,15 +220,6 @@ footer {
   justify-content: space-between;
 }
 
-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  margin: 10px;
-  border: none;
-  cursor: pointer;
-}
-
 ul {
   list-style-type: none;
   padding: 0;
@@ -227,5 +227,43 @@ ul {
 
 li {
   margin-bottom: 10px;
+}
+
+/* styling für jedes einzelne a tag */
+.matchList a {
+  cursor: pointer;
+  display: inline-block;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 50%;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 2px solid #4c3d40;
+  text-decoration: none;
+  text-align: left;
+  font-weight: normal;
+  font-style: oblique;
+  color: #4c3d40;
+  font-size: 1rem;
+  line-height: 1.75rem;
+  background-color: rgba(245, 241, 241, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.matchList p {
+  cursor: pointer;
+  display: inline-block;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  text-decoration: none;
+  text-align: left;
+  font-weight: normal;
+  font-style: oblique;
+  color: #4c3d40;
+  font-size: 1rem;
+  line-height: 1.75rem;
 }
 </style>

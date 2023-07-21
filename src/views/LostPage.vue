@@ -191,7 +191,7 @@ export default {
       this.description = "";
       this.picture = "";
       let urlEntries =
-        "https://23-april.lost-and-found.api.cbe.uber.space/entries";
+        "https://23-april.lost-and-found.api.cbe.uber.space/entries?_expand=product&_expand=color&_expand=material";
       let urlFilters =
         "https://23-april.lost-and-found.api.cbe.uber.space/filters";
 
