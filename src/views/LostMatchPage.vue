@@ -5,11 +5,17 @@
 
   <main>
     <div class="heading">
+      <div class="matchIMG">
+        <img src="../../src/assets/match.png" alt="" />
+      </div>
       <h2>
-        YES! We already have some matches for you! <br />Is one of these items
-        yours?
+        YES! <br />
+        We already have some matches for you!
+        <br />
+        Is one of these items yours?
+        <br />
+        Choose your item and get connected with the founder.
       </h2>
-      <h3 class="heading">(click it and get connected with the founder)</h3>
     </div>
 
     <!-- <template v-if="matchesStore.matches[0].length > 0">
@@ -166,11 +172,20 @@ h1 {
 h2,
 h3 {
   color: #f5f1f1;
+  max-width: 35%;
+  margin-left: 100px;
 }
 
 .heading {
-  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  line-height: 3rem;
+  /* padding-top: 50px; */
+  /* padding-bottom: 50px; */
 }
+
 .lost {
   color: #f5f1f1;
   padding-top: 25px;
@@ -179,7 +194,7 @@ h3 {
 main {
   background-color: #a6b8fc;
   padding-top: 0;
-  padding-bottom: 75px;
+  padding-bottom: 175px;
   padding-left: 25px;
   padding-right: 25px;
   display: flex;
